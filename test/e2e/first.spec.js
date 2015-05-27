@@ -21,5 +21,8 @@ describe('first', function () {
     browser.takeScreenshot().then(function (png) {
       writeScreenShot(png, 'test/output/first.png');
     });
+
+    var el = element(by.id('hello'));
+    expect(el.getText()).toEqual('Hello World');
   })
 })
