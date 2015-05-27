@@ -1,1 +1,9 @@
+# .gitkeep files are used to maintain directories.
+!.gitkeep
+
+# Ignore node module directory
 node_modules/
+
+# Ignore test output directory
+/test/output/*
+!/test/output/.gitkeep
