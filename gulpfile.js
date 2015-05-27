@@ -1,5 +1,6 @@
 var gulp = require('gulp');
+var fs   = require('fs')
 
-gulp.task('default', function() {
-  // place code for your default task here
-});
+fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
+  require('./gulp/' + task)
+})
