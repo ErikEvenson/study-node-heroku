@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "xvfb-run protractor protractor.conf.js"
+    "test": "mocha ./test/unit/*.spec.js && xvfb-run protractor protractor.conf.js"
   },
   "dependencies": {
     "express": "4.9.8"
@@ -22,5 +22,8 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "2.3.0"
+  }
 }

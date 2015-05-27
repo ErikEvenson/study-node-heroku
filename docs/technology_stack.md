@@ -10,6 +10,7 @@ These are the technologies used in this project.
 
 ## npm-installed (global)
 
+- [chai](https://www.npmjs.com/package/chai) 2.3.0 - BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [express](https://www.npmjs.com/package/express) 4.9.8 - Fast, unopinionated, minimalist web framework.
 
 ## Installed on host
