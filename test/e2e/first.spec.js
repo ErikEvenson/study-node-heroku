@@ -16,7 +16,7 @@ describe('first', function () {
 
   it('runs dummy test', function () {
     browser.ignoreSynchronization = true;
-    browser.get();
+    browser.get('/');
 
     browser.takeScreenshot().then(function (png) {
       writeScreenShot(png, 'test/output/first.png');
