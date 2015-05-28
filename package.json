@@ -27,8 +27,13 @@
     "chai": "2.3.0",
     "debug": "2.2.0",
     "gulp": "3.8.11",
+    "gulp-cached": "1.1.0",
     "gulp-develop-server": "0.4.3",
+    "gulp-gjslint": "0.1.4",
+    "gulp-jshint": "1.11.0",
     "gulp-mocha": "2.1.0",
-    "gulp-shell": "0.4.1"
+    "gulp-shell": "0.4.1",
+    "gulp-util": "3.0.4",
+    "map-stream": "0.0.5"
   }
 }
