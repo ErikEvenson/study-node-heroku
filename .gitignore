@@ -4,6 +4,9 @@
 # Ignore node module directory
 node_modules/
 
+# Ignore npm debug log
+npm-debug.log
+
 # Ignore test output directory
 /test/e2e/output/*
 !/test/e2e/output/.gitkeep
