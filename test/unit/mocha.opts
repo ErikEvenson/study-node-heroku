@@ -1,2 +1,2 @@
-test/unit
+src/**/*.spec.js
 --recursive
