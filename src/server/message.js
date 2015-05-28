@@ -1,1 +1,4 @@
-module.exports = "Hello World";
+/**
+ * Provides message.
+*/
+module.exports = 'Hello World';

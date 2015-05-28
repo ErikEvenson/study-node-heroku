@@ -9,20 +9,20 @@ function writeScreenShot(data, filename) {
   stream.end();
 }
 
-describe('first', function () {
+describe('first', function() {
   beforeEach(function() {
       isAngularSite(false);
   });
 
-  it('runs dummy test', function () {
+  it('runs dummy test', function() {
     browser.ignoreSynchronization = true;
     browser.get('/');
 
-    browser.takeScreenshot().then(function (png) {
+    browser.takeScreenshot().then(function(png) {
       writeScreenShot(png, __dirname + '/output/first.png');
     });
 
     var el = element(by.id('hello'));
     expect(el.getText()).toEqual('Hello World');
-  })
-})
+  });
+});
