@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var message = require('./server/message');
+var message = require('./message');
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));

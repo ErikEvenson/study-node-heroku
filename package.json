@@ -4,7 +4,7 @@
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/server/index.js",
     "test": "mocha --opts ./test/unit/mocha.opts ./test/unit/*.spec.js && xvfb-run protractor test/e2e/protractor.conf.js"
   },
   "dependencies": {

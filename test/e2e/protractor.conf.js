@@ -21,7 +21,7 @@ exports.config = {
     };
 
     process.env.PORT = 3001
-    require('../../index')
+    require('../../src/server/index')
   },
   specs: [
     '*.spec.js'
