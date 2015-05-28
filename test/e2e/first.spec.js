@@ -19,7 +19,7 @@ describe('first', function () {
     browser.get('/');
 
     browser.takeScreenshot().then(function (png) {
-      writeScreenShot(png, 'test/output/first.png');
+      writeScreenShot(png, __dirname + '/output/first.png');
     });
 
     var el = element(by.id('hello'));
