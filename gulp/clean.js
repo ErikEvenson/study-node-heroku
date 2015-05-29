@@ -10,8 +10,10 @@ var cleanInstance = function(instance, cb) {
   var instancePath = path.join(config.instances, instance);
 
   del([instancePath], function(err, deletedPaths) {
+    if (err) return cb(err);
+
     mkdirp(instancePath, function(err, made) {
-      cb(err);
+      return cb(err);
     });
   });  
 }
