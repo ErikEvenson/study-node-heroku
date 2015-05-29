@@ -11,6 +11,10 @@ npm-debug.log
 /test/e2e/output/*
 !/test/e2e/output/.gitkeep
 
-# Ingore built instances
+# Ignore built instances
 /instances/*
 !/instances/.gitkeep
+
+# Ignore secrets
+/secrets/*
+!/secrets/.gitkeep

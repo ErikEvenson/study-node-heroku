@@ -22,6 +22,7 @@ These are the technologies used in this project.
 - [gulp-mocha](https://www.npmjs.com/package/gulp-mocha) 2.1.0 - Run Mocha tests
 - [gulp-shell](https://www.npmjs.com/package/gulp-shell) 0.4.1 - A handy command line interface for gulp
 - [gulp-util](https://www.npmjs.com/package/gulp-util) 3.0.4 - Utility functions for gulp plugins
+- [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [yargs](https://www.npmjs.com/package/yargs) 3.9.1 - Light-weight option parsing with an argv hash. No optstrings attached.
