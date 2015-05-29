@@ -1,5 +1,5 @@
 var
-  config = require('./config'),
+  config = require('../config'),
   exec = require('child_process').exec,
   expect = require('chai').expect,
   heroku = require('./heroku');

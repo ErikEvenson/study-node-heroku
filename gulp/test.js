@@ -3,7 +3,7 @@ var
   mocha = require('gulp-mocha'),
   shell = require('gulp-shell');
 
-gulp.task('test', ['test:e2e', 'test:gulp', 'test:unit'], function() {
+gulp.task('test', ['lint', 'test:e2e', 'test:gulp', 'test:unit'], function() {
 });
 
 gulp.task('test:e2e', shell.task([

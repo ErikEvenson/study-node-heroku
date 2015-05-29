@@ -20,12 +20,14 @@ These are the technologies used in this project.
 - [gulp-gjslint](https://www.npmjs.com/package/gulp-gjslint) 0.1.4 - Gulp task for running gjslint, the Google Closure linter
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint) 1.11.0 - JSHint plugin for gulp
 - [gulp-mocha](https://www.npmjs.com/package/gulp-mocha) 2.1.0 - Run Mocha tests
+- [gulp-newer](https://www.npmjs.com/package/gulp-newer) 0.5.0 - Only pass through newer source files
 - [gulp-shell](https://www.npmjs.com/package/gulp-shell) 0.4.1 - A handy command line interface for gulp
 - [gulp-util](https://www.npmjs.com/package/gulp-util) 3.0.4 - Utility functions for gulp plugins
 - [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [yargs](https://www.npmjs.com/package/yargs) 3.9.1 - Light-weight option parsing with an argv hash. No optstrings attached.
+- [yeoman-assert](https://www.npmjs.com/package/yeoman-assert) 2.0.0 - Assert utility from yeoman
 
 ## Installed on host
 

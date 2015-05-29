@@ -20,7 +20,7 @@ var beeper = function(file, cb) {
   });
 };
 
-var config = require('./config');
+var config = require('../config');
 
 var jsLintFiles = [
   path.join(config.basepath, 'src/**/*.js'),

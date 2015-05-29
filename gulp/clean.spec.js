@@ -1,5 +1,5 @@
 var
-  config = require('./config'),
+  config = require('../config'),
   del = require('del'),
   exec = require('child_process').exec,
   fs = require('fs'),
@@ -11,10 +11,10 @@ var
 // var injectStyles = require('../.test-instance/tasks/dev');
 
 var
-  TEST_INSTANCE = 'testInstance'
+  INSTANCE = 'testInstance'
 
 var instancePathDirectoryTest = function(done) {
-  var instancePath = path.join(config.instances, TEST_INSTANCE)
+  var instancePath = path.join(config.instances, INSTANCE)
   
   fs.stat(instancePath, function(err, stats) {
     if (err) {
@@ -31,7 +31,7 @@ var instancePathDirectoryTest = function(done) {
 
 var clean = function(done) {
   exec(
-    'gulp clean --instance ' + TEST_INSTANCE,
+    'gulp clean --instance ' + INSTANCE,
     {
       cwd: config.basepath
     },
@@ -42,7 +42,7 @@ var clean = function(done) {
 }
 
 describe('gulp clean', function() {
-  var instancePath = path.join(config.instances, TEST_INSTANCE);
+  var instancePath = path.join(config.instances, INSTANCE);
 
   afterEach(function(done) {
     this.timeout(5000);

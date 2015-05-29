@@ -1,5 +1,5 @@
 var
-  config = require('./config'),
+  config = require('../config'),
   gulp = require('gulp'),
   Heroku = require('heroku-client');
 
