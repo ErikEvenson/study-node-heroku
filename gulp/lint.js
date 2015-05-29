@@ -25,7 +25,8 @@ var config = require('./config');
 var jsLintFiles = [
   path.join(config.basepath, 'src/**/*.js'),
   path.join(config.basepath, 'glup/**/*.js'),
-  path.join(config.basepath, 'test/**/*.js')
+  path.join(config.basepath, 'test/**/*.js'),
+  path.join(config.basepath, 'gulpfile.js')
 ];
 
 gulp.task('lint', ['lint:gjslint', 'lint:jshint'], function() {

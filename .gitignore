@@ -10,3 +10,7 @@ npm-debug.log
 # Ignore test output directory
 /test/e2e/output/*
 !/test/e2e/output/.gitkeep
+
+# Ingore built instances
+/instances/*
+!/instances/.gitkeep

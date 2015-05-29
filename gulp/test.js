@@ -3,7 +3,7 @@ var
   mocha = require('gulp-mocha'),
   shell = require('gulp-shell');
 
-gulp.task('test', ['test:e2e', 'test:unit'], function() {
+gulp.task('test', ['test:e2e', 'test:gulp', 'test:unit'], function() {
 });
 
 gulp.task('test:e2e', shell.task([
@@ -12,6 +12,12 @@ gulp.task('test:e2e', shell.task([
 
 gulp.task('test:unit', function () {
   return gulp.src(['src/server/**/*.spec.js'], {read: false})
+    // gulp-mocha needs filepaths so you can't have any plugins before it
+    .pipe(mocha());
+});
+
+gulp.task('test:gulp', function () {
+  return gulp.src(['gulp/**/*.spec.js'], {read: false})
     // gulp-mocha needs filepaths so you can't have any plugins before it
     .pipe(mocha());
 });
