@@ -1,5 +1,14 @@
-# .gitkeep files are used to maintain directories.
-!.gitkeep
+# Ignore test output directory
+/test/e2e/output/*
+
+# Ignore built instances
+/instances/*
+
+# Ignore secrets
+/secrets/*
+
+# Ignore temp directory
+/temp/*
 
 # Ignore node module directory
 node_modules/
@@ -7,14 +16,5 @@ node_modules/
 # Ignore npm debug log
 npm-debug.log
 
-# Ignore test output directory
-/test/e2e/output/*
-!/test/e2e/output/.gitkeep
-
-# Ignore built instances
-/instances/*
-!/instances/.gitkeep
-
-# Ignore secrets
-/secrets/*
-!/secrets/.gitkeep
+# .gitkeep files are used to maintain directories.
+!.gitkeep
