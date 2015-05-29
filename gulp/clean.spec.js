@@ -14,7 +14,7 @@ var
   TEST_INSTANCE = 'testInstance'
 
 var instancePathDirectoryTest = function(done) {
-  var instancePath = path.join(config.basepath, 'instances', TEST_INSTANCE)
+  var instancePath = path.join(config.instances, TEST_INSTANCE)
   
   fs.stat(instancePath, function(err, stats) {
     if (err) {
@@ -29,9 +29,9 @@ var instancePathDirectoryTest = function(done) {
   });
 }
 
-var build = function(done) {
+var clean = function(done) {
   exec(
-    'gulp build --instance ' + TEST_INSTANCE,
+    'gulp clean --instance ' + TEST_INSTANCE,
     {
       cwd: config.basepath
     },
@@ -41,8 +41,8 @@ var build = function(done) {
   );
 }
 
-describe('gulp build', function() {
-  var instancePath = path.join(config.basepath, 'instances', TEST_INSTANCE);
+describe('gulp clean', function() {
+  var instancePath = path.join(config.instances, TEST_INSTANCE);
 
   afterEach(function(done) {
     this.timeout(5000);
@@ -63,7 +63,7 @@ describe('gulp build', function() {
       this.timeout(50000);
       mkdirp.sync(instancePath);
       fs.writeFileSync(dummyFilePath, 'dummy content');
-      build(done);
+      clean(done);
     });
 
     it('clears the instance directory', function(done) {
@@ -77,7 +77,7 @@ describe('gulp build', function() {
   context('without existing instance directory', function() {
     beforeEach(function(done) {
       this.timeout(50000);
-      build(done);
+      clean(done);
     });
 
     it('creates the instance directory', function(done) {
