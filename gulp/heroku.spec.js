@@ -13,3 +13,11 @@ describe('gulp heroku:apps:list', function() {
     });
   });
 });
+
+describe('gulp heroku:deploy', function() {
+  it('should check that built instance exists');
+});
+
+describe('gulp heroku:tarball', function() {
+  it('creates a tarball');
+});
