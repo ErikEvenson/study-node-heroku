@@ -33,36 +33,56 @@ var herokuAppsList = function(done) {
   });  
 }
 
-var herokuDeploy = function(options, done) {
-  var instance = options.instance || 'development';
-  var appsList;
+var herokuDeploySource = function(options, done) {
+  if (!options.instance) return cb(new Error('no instance provided.'));
+  if (!options.app) return cb(new Error('no app provided.'));
+  var appObj = heroku.apps(options.app);
+  var tarballPath;
 
   async.waterfall([
+    // Create a heroku tarball
     function(cb) {
-      herokuAppsList(function(err, result) {
-        return cb(err, result);
+      herokuTarball(options, cb)
+    },
+    // Create a heroku source
+    function(result, cb) {
+      tarballPath = result;
+      
+      appObj.sources().create(
+        {},
+        function(err, source) {
+          if (err) return cb(err);
+          return cb(null, source);
+        }
+      );
+    },
+    // PUT tarball to source
+    function(source, cb) {
+      var putUrl = source.source_blob.put_url;
+
+      herokuPutFile(tarballPath, putUrl, function(err) {
+        if (err) { return cb(err); } else { return cb(null, source); }
       });
     },
-    function(result, cb) {
-      appsList = result;
-      gutil.log(appsList);
-      return cb();
+    // Create a heroku build
+    function(source, cb) {
+      var getUrl = source.source_blob.get_url;
+
+      appObj.builds().create(
+        {
+          source_blob: {
+            url: getUrl
+          }
+        },
+        function(err, result) {
+          if (err) { return cb(err); } else { return cb(null, result); }
+        }
+      );
     }
   ], done);
-
-  // var appList = herokuAppsList(function(err, appsList) {
-  //   if (err) cb(err);
-
-  //   if (!_.includes(appList, instance)) {
-  //     gutil.log('App does not exist on heroku -- creating...')
-  //     cb();
-  //   } else {
-  //     cb();
-  //   }
-  // });
 }
 
-var herokuPutFile = function putFile(file, putUrl, cb) {
+var herokuPutFile = function(file, putUrl, cb) {
   var urlObj = url.parse(putUrl);
 
   fs.readFile(file, function(err, data) {
@@ -150,7 +170,6 @@ var herokuTarball = function(options, done) {
 
 var lib = {
   herokuAppsList: herokuAppsList,
-  herokuDeploy: herokuDeploy,
   herokuPutFile: herokuPutFile,
   herokuSetup: herokuSetup,
   herokuTarball: herokuTarball
@@ -164,10 +183,36 @@ gulp.task('heroku:apps:list', function(done) {
 
 gulp.task('heroku:deploy', function(done) {
   var options = {
+    app: argv.app || null,
     instance: argv.instance || 'development'
   }
 
-  herokuDeploy(options, done);
+  async.waterfall([
+    function(cb) {
+      if (!options.app) return cb(null, false);
+
+      herokuAppsList(function(err, apps) {
+        if (err) return cb(err);
+        return cb(null, _.contains(apps, options.app));
+      });
+    },
+    function(appExists, cb) {
+      if (appExists) {
+        // deploy source
+        herokuDeploySource(options, function(err, response) {
+          cb(err, response);
+        });
+      } else {
+        // Setup app
+        herokuSetup(options, function(err, response) {
+          cb(err, response);
+        });
+      }
+    }
+  ], function(err, result) {
+    gutil.log(result);
+    done();
+  });
 });
 
 gulp.task('heroku:setup', function(done) {
@@ -179,6 +224,7 @@ gulp.task('heroku:setup', function(done) {
   herokuSetup(options, function(err, response) {
     if (err) throw err;
     gutil.log(response);
+    done();
   });
 });
 
