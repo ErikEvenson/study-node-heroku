@@ -14,7 +14,8 @@ var
   request = require('request'),
   tar = require('gulp-tar'),
   url = require('url'),
-  uuid = require('uuid');
+  uuid = require('uuid'),
+  yassert = require('yeoman-assert');
 
 var keys = require(path.join(config.secrets, 'keys'));
 var heroku = new Heroku({token: keys.HEROKU_API_TOKEN});
@@ -81,6 +82,8 @@ var herokuPutFile = function putFile(file, putUrl, cb) {
 }
 
 var herokuSetup = function(options, done) {
+  if (!options.instance) return cb(new Error('no instance provided.'));
+  var app = options.app || null;
   var tarballPath;
 
   async.waterfall([
@@ -105,11 +108,18 @@ var herokuSetup = function(options, done) {
     },
     // Send app setup to heroku
     function(getUrl, cb) {
-      var attributes = { source_blob: { url: getUrl } };
+      var attributes = {
+        app: {
+          name: app
+        },
+        source_blob: {
+          url: getUrl
+        }
+      };
+
       heroku.appSetups().create(attributes, cb);      
     }    
   ], function(err, result) {
-    gutil.log(err, result);
     done(err, result);
   });
 }
@@ -119,6 +129,7 @@ var herokuTarball = function(options, done) {
   var tarballName = options.tarballName || instance
   var tarballPath = path.join(config.temp, tarballName + '.tar.gz');
   var files = path.join(config.instances, instance, '**/*');
+  yassert.file(path.join(config.instances, instance, 'app.json'));
 
   async.waterfall([
     function(cb) {
@@ -165,7 +176,10 @@ gulp.task('heroku:setup', function(done) {
     instance: argv.instance || 'development'
   };
 
-  herokuSetup(options, done);
+  herokuSetup(options, function(err, response) {
+    if (err) throw err;
+    gutil.log(response);
+  });
 });
 
 gulp.task('heroku:tarball', function(done) {
