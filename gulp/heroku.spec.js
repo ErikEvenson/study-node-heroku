@@ -4,6 +4,7 @@ var
   expect = require('chai').expect,
   heroku = require('./heroku'),
   Heroku = require('heroku-client'),
+  mock = require('mock-fs'),
   sinon = require('sinon'),
   yassert = require('yeoman-assert');
 
@@ -39,24 +40,33 @@ describe('gulp heroku:setup', function() {
   it('creates a setup');
 });
 
-describe('gulp heroku:tarball', function() {
-  after('something', function(done) {
-    files = path.join(config.temp, '**/*.tar.gz');
-    del([files], done);
-  });
+// describe('gulp heroku:tarball', function() {
+//   after('something', function() {
+//     mock.restore();
 
-  before('something', function(done) {
-    // Need to create an instance to be tarballed...
-    files = path.join(config.temp, '**/*.tar.gz');
-    del([files], done);
-  });
+//     // files = path.join(config.temp, '**/*.tar.gz');
+//     // del([files], done);
+//   });
 
-  it('creates a tarball', function(done) {
-    var options = {}
-    heroku.herokuTarball(options, function(err, result) {
-      expect(result).to.be.a('string');
-      yassert.file(result);
-      done();
-    });
-  });
-});
+//   before('something', function() {
+//     // Need to create an instance to be tarballed...
+//     mock({
+//       'instances/development': {
+//         'app.json': 'test content'
+//       }
+//     });
+
+//     // files = path.join(config.temp, '**/*.tar.gz');
+//     // del([files], done);
+//   });
+
+//   it('creates a tarball', function(done) {
+//     var options = {}
+
+//     heroku.herokuTarball(options, function(err, result) {
+//       expect(result).to.be.a('string');
+//       yassert.file(result);
+//       done();
+//     });
+//   });
+// });

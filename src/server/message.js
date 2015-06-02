@@ -1,4 +1,4 @@
 /**
  * Provides message.
 */
-module.exports = 'Hello Worlds';
+module.exports = 'Hello World';
