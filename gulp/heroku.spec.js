@@ -3,35 +3,26 @@ var
   exec = require('child_process').exec,
   expect = require('chai').expect,
   heroku = require('./heroku'),
+  Heroku = require('heroku-client'),
   sinon = require('sinon'),
   yassert = require('yeoman-assert');
 
 describe('gulp heroku:apps:list', function() {
-  it('provides a list of apps', function(done) {
-    this.timeout(5000);
-
-    heroku.herokuAppsList(function(err, apps) {
-      expect(apps).to.be.an('array');
-      done();
-    });
-  });
-});
-
-describe('gulp heroku:apps:list', function() {
   var stub;
+
   after('restore stub', function() {
-    heroku.herokuAppsList.restore();
+    Heroku.prototype.apps.restore();
   });
 
   before('set up stub', function() {
-    stub = sinon.stub(heroku, 'herokuAppsList', function(cb) {
-      cb(null, ['xxx']);
+    stub = sinon.stub(Heroku.prototype, "apps").returns({
+      list: function(cb) {
+        cb(null, [{name: 'xxx'}]);
+      }
     });
   });
 
-  it('should just show how a stub works', function(done) {
-    this.timeout(5000);
-
+  it('should just show how a stub works using the heroku:apps:list call', function(done) {
     heroku.herokuAppsList(function(err, apps) {
       expect(stub.callCount).to.equal(1);
       expect(apps).to.deep.equal(['xxx']);
