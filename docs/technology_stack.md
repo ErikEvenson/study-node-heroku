@@ -35,6 +35,7 @@ These are the technologies used in this project.
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
+- [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.
 - [yargs](https://www.npmjs.com/package/yargs) 3.9.1 - Light-weight option parsing with an argv hash. No optstrings attached.
 - [yeoman-assert](https://www.npmjs.com/package/yeoman-assert) 2.0.0 - Assert utility from yeoman
