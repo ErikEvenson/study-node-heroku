@@ -5,7 +5,7 @@ var
   server = require('gulp-develop-server');
 
 var config = require('../config');
-var app = path.join(config.basepath, 'src/server/index.js');
+var app = path.join(config.basepath, 'src/bin/www');
 
 gulp.task('server:start', function() {
   server.listen({path: app});
