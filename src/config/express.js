@@ -34,7 +34,7 @@ module.exports = function() {
   viewPaths = [
     path.join(__dirname, '../core/server/views')
   ];
-  
+
   app.set('views', viewPaths);
   app.set('view engine', 'jade');
 
@@ -42,7 +42,10 @@ module.exports = function() {
   require('../core/server/routes/core.routes.server.js')(app);
 
   // Serve static assets
-  app.use('/public/core', express.static(path.join(__dirname, '../core/public')));
+  app.use(
+    '/public/core',
+    express.static(path.join(__dirname, '../core/public'))
+  );
 
   return app;
 };
