@@ -1,7 +1,10 @@
 {
   "name": "study-node-heroku",
   "description": "A barebones Node.js app using Express 4",
+  "env": {
+    "NODE_ENV": "production"
+  },
   "repository": "https://github.com/ErikEvenson/study-node-heroku",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "logo": "http://eee555.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"]
 }

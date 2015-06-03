@@ -12,7 +12,9 @@ These are the technologies used in this project.
 
 - [async](https://www.npmjs.com/package/async) 1.0.0 - Higher-order functions and common patterns for asynchronous code
 - [aws-sdk](https://www.npmjs.com/package/aws-sdk) 2.1.32 - AWS SDK for JavaScript
+- [body-parser](https://www.npmjs.com/package/body-parser) 1.12.4 - Node.js body parsing middleware
 - [chai](https://www.npmjs.com/package/chai) 2.3.0 - BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+- [compression](https://www.npmjs.com/package/compression) 1.4.4 - Node.js compression middleware
 - [debug](https://www.npmjs.com/package/debug) 2.2.0 - tiny node.js debugging utility modelled after node core's debugging technique
 - [del](https://www.npmjs.com/package/del) 1.2.0
 - [express](https://www.npmjs.com/package/express) 4.9.8 - Fast, unopinionated, minimalist web framework.
@@ -33,8 +35,10 @@ These are the technologies used in this project.
 - [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
 - [lodash](https://www.npmjs.com/package/lodash) 3.9.3 - The modern build of lodash modular utilities
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
+- [method-override](https://www.npmjs.com/package/method-override) 2.3.3 - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [mock-fs](https://www.npmjs.com/package/mock-fs) 2.7.0 - A configurable mock file system.
+- [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.
