@@ -41,5 +41,8 @@ module.exports = function() {
   // Set up routes
   require('../core/server/routes/core.routes.server.js')(app);
 
+  // Serve static assets
+  app.use('/public/core', express.static(path.join(__dirname, '../core/public')));
+
   return app;
 };

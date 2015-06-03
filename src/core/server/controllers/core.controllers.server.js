@@ -4,7 +4,7 @@
  */
 
 exports.render = function(req, res) {
-  res.render('index', {
+  res.render('core.views.index.jade', {
     title: 'Hello World'
   });
 };
