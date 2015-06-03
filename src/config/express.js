@@ -3,7 +3,8 @@ var
   bodyParser = require('body-parser'),
   express = require('express'),
   methodOverride = require('method-override'),
-  morgan = require('morgan');
+  morgan = require('morgan'),
+  path = require('path');
 
 /**
   * @return {Object} - Application.
@@ -29,6 +30,15 @@ module.exports = function() {
   app.use(bodyParser.json());
   app.use(methodOverride());
 
+  // Set up view engines
+  viewPaths = [
+    path.join(__dirname, '../core/server/views')
+  ];
+  
+  app.set('views', viewPaths);
+  app.set('view engine', 'jade');
+
+  // Set up routes
   require('../core/server/routes/core.routes.server.js')(app);
 
   return app;

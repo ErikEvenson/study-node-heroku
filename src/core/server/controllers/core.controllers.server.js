@@ -4,5 +4,7 @@
  */
 
 exports.render = function(req, res) {
-  res.send(['<p id="hello">', 'Hello World', '</p>'].join(''));
+  res.render('index', {
+    title: 'Hello World'
+  });
 };

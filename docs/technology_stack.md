@@ -17,7 +17,7 @@ These are the technologies used in this project.
 - [compression](https://www.npmjs.com/package/compression) 1.4.4 - Node.js compression middleware
 - [debug](https://www.npmjs.com/package/debug) 2.2.0 - tiny node.js debugging utility modelled after node core's debugging technique
 - [del](https://www.npmjs.com/package/del) 1.2.0
-- [express](https://www.npmjs.com/package/express) 4.9.8 - Fast, unopinionated, minimalist web framework.
+- [express](https://www.npmjs.com/package/express) 4.12.4 - Fast, unopinionated, minimalist web framework.
 - [gulp](https://www.npmjs.com/package/gulp) 3.8.11 - The streaming build system
 - [gulp-cached](https://www.npmjs.com/package/gulp-cached) 1.1.0 - A simple in-memory file cache for gulp
 - [gulp-callback](https://www.npmjs.com/package/gulp-callback) 0.0.3 - copied from http://c2journal.com/2014/07/30/gulp-pipe-callback/
@@ -33,6 +33,7 @@ These are the technologies used in this project.
 - [gulp-tar](https://www.npmjs.com/package/gulp-tar) 1.4.0 - Create tarball from files
 - [gulp-util](https://www.npmjs.com/package/gulp-util) 3.0.4 - Utility functions for gulp plugins
 - [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
+- [jade](https://www.npmjs.com/package/jade) 1.10.0 - 'Robust, elegant, feature rich template engine for nodejs.'
 - [lodash](https://www.npmjs.com/package/lodash) 3.9.3 - The modern build of lodash modular utilities
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
 - [method-override](https://www.npmjs.com/package/method-override) 2.3.3 - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
