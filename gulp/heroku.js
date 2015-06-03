@@ -116,7 +116,7 @@ var herokuSetup = function(options, done) {
       tarballPath = result;
       var filename = path.basename(tarballPath);
 
-      aws.getPutUrl(filename, function(err, putUrl) {
+      aws.awsGetPutUrl(filename, function(err, putUrl) {
         return cb(err, putUrl);
       });
     },
