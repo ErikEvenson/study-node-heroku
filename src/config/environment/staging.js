@@ -3,6 +3,6 @@
  */
 
 module.exports = {
-  db: null,
+  db: process.env.MONGOLAB_URI,
   sessionSecret: 'stagingSecret555'
 };

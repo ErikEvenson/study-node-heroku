@@ -49,6 +49,7 @@ module.exports = function() {
 
   // Set up routes
   require('../core/server/routes/core.routes.server.js')(app);
+  require('../core/server/routes/core.routes.users.js')(app);
 
   // Serve static assets
   app.use(

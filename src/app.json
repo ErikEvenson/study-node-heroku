@@ -1,4 +1,7 @@
 {
+  "addons": [
+    "mongolab:sandbox"
+  ],
   "name": "study-node-heroku",
   "description": "A barebones Node.js app using Express 4",
   "env": {
