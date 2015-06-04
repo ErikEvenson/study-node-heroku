@@ -3,5 +3,5 @@
  */
 
 module.exports = {
-
+  sessionSecret: 'productionSecret555'
 };

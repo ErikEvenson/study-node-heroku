@@ -1,10 +1,12 @@
 var
   compression = require('compression'),
   bodyParser = require('body-parser'),
+  environment = require('./environment'),
   express = require('express'),
   methodOverride = require('method-override'),
   morgan = require('morgan'),
-  path = require('path');
+  path = require('path'),
+  session = require('express-session');
 
 /**
   * @return {Object} - Application.
@@ -29,6 +31,13 @@ module.exports = function() {
 
   app.use(bodyParser.json());
   app.use(methodOverride());
+
+  // Set up express-session
+  app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: environment.sessionSecret
+  }));
 
   // Set up view engines
   viewPaths = [
