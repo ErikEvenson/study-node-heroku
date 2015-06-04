@@ -16,7 +16,8 @@
     "lodash": "3.9.3",
     "method-override": "2.3.3",
     "mongoose": "4.0.4",
-    "morgan": "1.5.3"
+    "morgan": "1.5.3",
+    "passport": "0.2.2"
   },
   "engines": {
     "node": "0.12.2"

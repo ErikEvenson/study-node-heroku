@@ -42,6 +42,7 @@ These are the technologies used in this project.
 - [mock-fs](https://www.npmjs.com/package/mock-fs) 2.7.0 - A configurable mock file system.
 - [mongoose](https://www.npmjs.com/package/mongoose) 4.0.4 - Mongoose MongoDB ODM
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
+- [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.

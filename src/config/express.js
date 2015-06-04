@@ -5,6 +5,7 @@ var
   express = require('express'),
   methodOverride = require('method-override'),
   morgan = require('morgan'),
+  passport = require('passport'),
   path = require('path'),
   session = require('express-session');
 
@@ -46,6 +47,10 @@ module.exports = function() {
 
   app.set('views', viewPaths);
   app.set('view engine', 'jade');
+
+  // Set up passport authentication
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   // Set up routes
   require('../core/server/routes/core.routes.server.js')(app);
