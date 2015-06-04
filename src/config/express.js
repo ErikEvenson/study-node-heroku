@@ -9,7 +9,7 @@ var
   session = require('express-session');
 
 /**
-  * @return {Object} - Application.
+  * @return {Function} - The express application.
  */
 
 module.exports = function() {

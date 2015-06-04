@@ -40,6 +40,7 @@ These are the technologies used in this project.
 - [method-override](https://www.npmjs.com/package/method-override) 2.3.3 - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [mock-fs](https://www.npmjs.com/package/mock-fs) 2.7.0 - A configurable mock file system.
+- [mongoose](https://www.npmjs.com/package/mongoose) 4.0.4 - Mongoose MongoDB ODM
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
