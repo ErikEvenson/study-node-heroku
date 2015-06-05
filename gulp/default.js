@@ -5,10 +5,13 @@ var
   server = require('./server');
 
 gulp.task('default', function() {
-  var instance = argv.instance || 'development';
-  var source = argv.source || 'src';
+  var options = {
+    clean: argv.clean || false,
+    instance: argv.instance || 'development',
+    source: argv.source || 'src'
+  }
 
-  build.buildInstance(instance, source, function(err) {
-    server.serverStart(instance);
+  build.buildInstance(options, function(err) {
+    server.serverStart(options.instance);
   });
 });

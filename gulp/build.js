@@ -1,6 +1,7 @@
 var
   argv = require('yargs').argv,
   async = require('async'),
+  clean = require('./clean'),
   config = require('../config'),
   del = require('del'),
   gcallback = require('gulp-callback'),
@@ -11,24 +12,39 @@ var
   path = require('path');
 
 var lib = {
-  buildInstance: function(instance, source, done) {
-    var instancePath = path.join(config.instances, instance);
-    var sourcePath = path.join(config.basepath, source, '**/*');
+  buildInstance: function(options, done) {
+    var instancePath = path.join(config.instances, options.instance);
+    var sourcePath = path.join(config.basepath, options.source, '**/*');
 
     var sourceFiles = [
       sourcePath,
       path.join(config.basepath, 'package.json')
     ];
 
-    async.parallel([
-      function(cb) {
-        gulp.src(sourceFiles)
-          .pipe(newer(instancePath))
-          .pipe(gulp.dest(instancePath))
-          .on('end', cb);
+    // Remove client-side jade source files as these are processed into html
+    // files.
+    sourceFiles.push('!' + config.basepath, options.source, '**/public/views/**/*.html');
+
+    async.series([
+      function(cb1) {
+        if (options.clean) {
+          clean.cleanInstance(options.instance, cb1);
+        } else {
+          cb1();
+        }
       },
-      function(cb) {
-        jade.jadeClient(instance, source, cb);
+      function(cb2) {
+        async.parallel([
+          function(cb3) {
+            gulp.src(sourceFiles)
+              .pipe(newer(instancePath))
+              .pipe(gulp.dest(instancePath))
+              .on('end', cb3);
+          },
+          function(cb4) {
+            jade.jadeClient(options.instance, options.source, cb4);
+          }
+        ], cb2);
       }
     ], done);
   }
@@ -37,8 +53,11 @@ var lib = {
 module.exports = lib;
 
 gulp.task('build', function(done) {
-  var instance = argv.instance || 'development';
-  var source = argv.source || 'src';
+  var options = {
+    clean: argv.clean || false,
+    instance: argv.instance || 'development',
+    source: argv.source || 'src'
+  };
 
-  return lib.buildInstance(instance, source, done);
+  return lib.buildInstance(options, done);
 });
