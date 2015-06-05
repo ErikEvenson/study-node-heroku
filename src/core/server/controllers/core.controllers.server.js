@@ -11,6 +11,7 @@ exports.render = function(req, res) {
   req.session.lastVisit = new Date();
 
   res.render('core.views.index.jade', {
-    title: 'Hello World'
+    title: 'Hello World',
+    name: req.user ? req.user.name : ''
   });
 };

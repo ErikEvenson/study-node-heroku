@@ -3,6 +3,7 @@ var
   bodyParser = require('body-parser'),
   environment = require('./environment'),
   express = require('express'),
+  flash = require('connect-flash'),
   methodOverride = require('method-override'),
   morgan = require('morgan'),
   passport = require('passport'),
@@ -47,6 +48,9 @@ module.exports = function() {
 
   app.set('views', viewPaths);
   app.set('view engine', 'jade');
+
+  // Set up connect-flash
+  app.use(flash());
 
   // Set up passport authentication
   app.use(passport.initialize());

@@ -1,17 +1,23 @@
-var usersController = require('../controllers/core.controllers.users');
+var passport = require('passport');
 
-/**
- * @param {Object} app - the application
- */
 module.exports = function(app) {
-  app.route('/users')
-    .get(usersController.list)
-    .post(usersController.create);
+  var
+    usersController = require('../controllers/core.controllers.users');
 
-  app.route('/users/:userId')
-    .delete(usersController.delete)
-    .get(usersController.read)
-    .put(usersController.update);
+  app.route('/signup')
+    .get(usersController.renderSignup)
+    .post(usersController.signup);
 
-  app.param('userId', usersController.userByID);
+  app.route('/signin')
+    .get(usersController.renderSignin)
+    .post(passport.authenticate(
+      'local',
+      {
+        successRedirect: '/',
+        failureRedirect: '/signin',
+        failureFlash: true
+      }
+    ));
+
+  app.get('/signout', usersController.signout);
 };

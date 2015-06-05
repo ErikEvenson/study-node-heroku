@@ -15,6 +15,7 @@ These are the technologies used in this project.
 - [body-parser](https://www.npmjs.com/package/body-parser) 1.12.4 - Node.js body parsing middleware
 - [chai](https://www.npmjs.com/package/chai) 2.3.0 - BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [compression](https://www.npmjs.com/package/compression) 1.4.4 - Node.js compression middleware
+- [connect-flash](https://www.npmjs.com/package/connect-flash) 0.1.1 - Flash message middleware for Connect.
 - [debug](https://www.npmjs.com/package/debug) 2.2.0 - tiny node.js debugging utility modelled after node core's debugging technique
 - [del](https://www.npmjs.com/package/del) 1.2.0
 - [express](https://www.npmjs.com/package/express) 4.12.4 - Fast, unopinionated, minimalist web framework.
@@ -43,6 +44,7 @@ These are the technologies used in this project.
 - [mongoose](https://www.npmjs.com/package/mongoose) 4.0.4 - Mongoose MongoDB ODM
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
+- [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - Local username and password authentication strategy for Passport.
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.

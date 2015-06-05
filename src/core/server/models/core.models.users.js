@@ -1,27 +1,34 @@
 var
-  mongoose = require('mongoose');
-
-var
+  mongoose = require('mongoose'),
+  crypto = require('crypto'),
   Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   created: {
-    type: Date,
-    default: Date.now
+    default: Date.now,
+    type: Date
   },
-
   email: {
-    index: true,
     match: [
       /.+\@.+\..+/,
       'Please provide a valid e-mail address'
     ],
     type: String
   },
-
-  firstName: String,
-  lastName: String,
-
+  name: {
+    first: {
+      required: true,
+      type: String
+    },
+    last: {
+      required: true,
+      type: String
+    }
+  },
+  organization: {
+    ref: 'Organization',
+    type: Schema.Types.ObjectId
+  },
   password: {
     type: String,
     validate: [
@@ -30,55 +37,22 @@ var UserSchema = new Schema({
       }, 'Password should be longer'
     ]
   },
-
-  role: {
-    enum: ['user'],
+  salt: {
     type: String
   },
-
+  provider: {
+    required: 'Provider is required',
+    type: String
+  },
+  providerData: {},
+  providerId: String,
   username: {
-    required: true,
-    type: String,
+    required: 'Username is required',
     trim: true,
+    type: String,
     unique: true
-  },
-
-  website: {
-    get: function(url) {
-      if (!url) {
-        return url;
-      } else {
-        if (url.indexOf('http://') !== 0 && url.indexOf('https://') !== 0) {
-          url = 'http://' + url;
-        }
-
-        return url;
-     }
-    },
-
-    set: function(url) {
-      if (!url) {
-        return url;
-      } else {
-        if (url.indexOf('http://') !== 0 && url.indexOf('https://') !== 0) {
-          url = 'http://' + url;
-        }
-
-        return url;
-        }
-    },
-    type: String
   }
 });
-
-/**
- * @param {String} password -- The password
- * @return {Boolean}
- * @this UserSchema
- */
-UserSchema.methods.authenticate = function(password) {
-  return this.password === password;
-};
 
 /**
  * @param {String} username
@@ -89,14 +63,66 @@ UserSchema.statics.findOneByUsername = function(username, cb) {
   this.findOne({username: new RegEx(username, 'i')}, cb);
 };
 
-UserSchema.virtual('fullName').get(function() {
-  return this.firstName + ' ' + this.lastName;
-}).set(function(fullName) {
-  var splitName = fullName.split(' ');
-  this.firstName = splitName[0] || '';
-  this.lastName = splitName[1] || '';
+UserSchema.pre('save', function(next) {
+  if (this.password) {
+    this.salt = new Buffer(
+      crypto.randomBytes(16).toString('base64'),
+      'base64'
+    );
+
+    this.password = this.hashPassword(this.password);
+  }
+
+  next();
 });
 
-UserSchema.set('toJSON', {getters: true, virtuals: true});
+/**
+ * @param {String} password -- The password to be hashed.
+ * @return {String}
+ * @this UserSchema
+ */
+UserSchema.methods.hashPassword = function(password) {
+  return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+};
 
-mongoose.model('User', UserSchema);
+/**
+ * @param {String} password -- The password to be hashed.
+ * @return {Boolean}
+ * @this UserSchema
+ */
+UserSchema.methods.authenticate = function(password) {
+  return this.password === this.hashPassword(password);
+};
+
+/**
+ * @param {String} username
+ * @param {String} suffix
+ * @param {Function} cb
+ * @this UserSchema
+ */
+UserSchema.statics.findUniqueUsername = function(username, suffix, cb) {
+  var _this = this;
+  var possibleUsername = username + (suffix || '');
+
+  _this.findOne({
+    username: possibleUsername
+  }, function(err, user) {
+    if (!err) {
+      if (!user) {
+        cb(possibleUsername);
+      } else {
+        return _this.findUniqueUsername(username, (suffix || 0) + 1, cb);
+      }
+    } else {
+      cb(null);
+    }
+  });
+};
+
+UserSchema.set('toJSON', {
+  getters: true,
+  virtuals: true
+});
+
+/** @param {Object} module.exports - Export model. */
+module.exports = mongoose.model('User', UserSchema);
