@@ -2,7 +2,7 @@ var passport = require('passport');
 
 module.exports = function(app) {
   var
-    usersController = require('../controllers/core.controllers.users');
+    usersController = require('../controllers/users');
 
   app.route('/signup')
     .get(usersController.renderSignup)

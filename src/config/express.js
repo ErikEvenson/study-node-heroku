@@ -57,8 +57,8 @@ module.exports = function() {
   app.use(passport.session());
 
   // Set up routes
-  require('../core/server/routes/core.routes.server.js')(app);
-  require('../core/server/routes/core.routes.users.js')(app);
+  require('../core/server/routes/server.js')(app);
+  require('../core/server/routes/users.js')(app);
 
   // Serve static assets
   app.use(

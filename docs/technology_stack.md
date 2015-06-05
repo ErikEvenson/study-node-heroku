@@ -32,6 +32,7 @@ These are the technologies used in this project.
 - [gulp-gzip](https://www.npmjs.com/package/gulp-gzip) 1.1.0 - Gzip plugin for gulp
 - [gulp-if](https://www.npmjs.com/package/gulp-if) 1.2.5 - Conditionally run a task
 - [gulp-if-else](https://www.npmjs.com/package/gulp-if-else) 1.0.3 - Conditional task with "if" callback and "else" callback
+- [gulp-jade](https://www.npmjs.com/package/gulp-jade) 1.0.1 - Compile Jade templates
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint) 1.11.0 - JSHint plugin for gulp
 - [gulp-mocha](https://www.npmjs.com/package/gulp-mocha) 2.1.0 - Run Mocha tests
 - [gulp-newer](https://www.npmjs.com/package/gulp-newer) 0.5.0 - Only pass through newer source files
