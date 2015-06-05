@@ -39,7 +39,7 @@ gulp.task('lint', ['lint:gjslint', 'lint:jshint'], function() {
 gulp.task('lint:gjslint', function() {
   var options = {
     // This flag doesn't seem to work...
-    flags: ['--beep']
+    flags: ['--beep', '--nojsdoc']
   };
 
   return gulp.src(jsLintFiles)

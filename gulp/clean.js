@@ -1,9 +1,10 @@
-argv = require('yargs').argv,
-config = require('../config'),
-del = require('del'),
-gulp = require('gulp'),
-mkdirp = require('mkdirp'),
-path = require('path');
+var
+  argv = require('yargs').argv,
+  config = require('../config'),
+  del = require('del'),
+  gulp = require('gulp'),
+  mkdirp = require('mkdirp'),
+  path = require('path');
 
 var lib = {
   cleanInstance: function(instance, cb) {
@@ -16,9 +17,9 @@ var lib = {
       mkdirp(instancePath, function(err, made) {
         return cb(err);
       });
-    });  
-  }  
-}
+    });
+  }
+};
 
 module.exports = lib;
 

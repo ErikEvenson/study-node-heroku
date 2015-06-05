@@ -11,11 +11,11 @@ var
 // var injectStyles = require('../.test-instance/tasks/dev');
 
 var
-  INSTANCE = 'testInstance'
+  INSTANCE = 'testInstance';
 
 var instancePathDirectoryTest = function(done) {
-  var instancePath = path.join(config.instances, INSTANCE)
-  
+  var instancePath = path.join(config.instances, INSTANCE);
+
   fs.stat(instancePath, function(err, stats) {
     if (err) {
       done(err, stats);
@@ -23,11 +23,11 @@ var instancePathDirectoryTest = function(done) {
       if (stats.isDirectory()) {
         done(err, stats);
       } else {
-        done(new Error("test instance is not a directory.", stats));
+        done(new Error('test instance is not a directory.', stats));
       }
     }
   });
-}
+};
 
 var clean = function(done) {
   exec(
@@ -39,7 +39,7 @@ var clean = function(done) {
       done();
     }
   );
-}
+};
 
 describe('gulp clean', function() {
   var instancePath = path.join(config.instances, INSTANCE);
@@ -47,7 +47,7 @@ describe('gulp clean', function() {
   afterEach(function(done) {
     this.timeout(5000);
     del.sync([instancePath]);
-    done();    
+    done();
   });
 
   beforeEach(function(done) {
@@ -68,7 +68,7 @@ describe('gulp clean', function() {
 
     it('clears the instance directory', function(done) {
       fs.stat(dummyFilePath, function(err, stats) {
-        if (err) done()
+        if (err) done();
         else done(new Error('build is not clearing instance directory.'));
       });
     });
@@ -81,7 +81,7 @@ describe('gulp clean', function() {
     });
 
     it('creates the instance directory', function(done) {
-      instancePathDirectoryTest(done);      
+      instancePathDirectoryTest(done);
     });
   });
 });

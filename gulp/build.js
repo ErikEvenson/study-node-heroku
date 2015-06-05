@@ -1,10 +1,11 @@
-argv = require('yargs').argv,
-config = require('../config'),
-del = require('del'),
-gulp = require('gulp'),
-mkdirp = require('mkdirp'),
-newer = require('gulp-newer'),
-path = require('path');
+var
+  argv = require('yargs').argv,
+  config = require('../config'),
+  del = require('del'),
+  gulp = require('gulp'),
+  mkdirp = require('mkdirp'),
+  newer = require('gulp-newer'),
+  path = require('path');
 
 var lib = {
   buildInstance: function(instance, source) {
@@ -14,13 +15,13 @@ var lib = {
     var sourceFiles = [
       sourcePath,
       path.join(config.basepath, 'package.json')
-    ]
+    ];
 
     return gulp.src(sourceFiles)
       .pipe(newer(instancePath))
       .pipe(gulp.dest(instancePath));
   }
-}
+};
 
 module.exports = lib;
 

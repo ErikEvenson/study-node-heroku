@@ -10,8 +10,8 @@ var
   yassert = require('yeoman-assert');
 
 var
-  SOURCE = 'gulp/test/fixtures/build/src'
-  INSTANCE = 'test'
+  SOURCE = 'gulp/test/fixtures/build/src',
+  INSTANCE = 'test';
 
 describe('gulp build', function() {
   afterEach(function(done) {
@@ -24,12 +24,12 @@ describe('gulp build', function() {
     clean.cleanInstance(INSTANCE, done);
   });
 
-  it('should move source files to instance directory', function () {
+  it('should move source files to instance directory', function() {
     build.buildInstance(INSTANCE, SOURCE).on('end', function() {
       yassert.file([
         path.join(config.instances, INSTANCE, 'dummy.txt'),
         path.join(config.instances, INSTANCE, 'package.json')
-      ]);      
+      ]);
     });
   });
 });

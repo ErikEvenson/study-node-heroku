@@ -11,6 +11,7 @@ var
   gutil = require('gulp-util'),
   Heroku = require('heroku-client'),
   keys = require('../secrets/keys'),
+  path = require('path'),
   request = require('request'),
   tar = require('gulp-tar'),
   url = require('url'),
@@ -30,8 +31,8 @@ var herokuAppsList = function(done) {
     });
 
     return done(null, appsList);
-  });  
-}
+  });
+};
 
 var herokuDeploySource = function(options, done) {
   if (!options.instance) return cb(new Error('no instance provided.'));
@@ -42,12 +43,12 @@ var herokuDeploySource = function(options, done) {
   async.waterfall([
     // Create a heroku tarball
     function(cb) {
-      herokuTarball(options, cb)
+      herokuTarball(options, cb);
     },
     // Create a heroku source
     function(result, cb) {
       tarballPath = result;
-      
+
       appObj.sources().create(
         {},
         function(err, source) {
@@ -80,7 +81,7 @@ var herokuDeploySource = function(options, done) {
       );
     }
   ], done);
-}
+};
 
 var herokuPutFile = function(file, putUrl, cb) {
   var urlObj = url.parse(putUrl);
@@ -99,7 +100,7 @@ var herokuPutFile = function(file, putUrl, cb) {
       });
     }
   });
-}
+};
 
 var herokuSetup = function(options, done) {
   if (!options.instance) return cb(new Error('no instance provided.'));
@@ -109,7 +110,7 @@ var herokuSetup = function(options, done) {
   async.waterfall([
     // Create a heroku tarball
     function(cb) {
-      herokuTarball(options, cb)
+      herokuTarball(options, cb);
     },
     // Create AWS PUT URL
     function(result, cb) {
@@ -123,7 +124,11 @@ var herokuSetup = function(options, done) {
     // Put heroku tarball to AWS PUT URL
     function(putUrl, cb) {
       herokuPutFile(tarballPath, putUrl, function(err) {
-        if (err) { return cb(err); } else { return cb(null, putUrl.split('?')[0]); }
+        if (err) {
+         return cb(err);
+        } else {
+          return cb(null, putUrl.split('?')[0]);
+        }
       });
     },
     // Send app setup to heroku
@@ -137,16 +142,16 @@ var herokuSetup = function(options, done) {
         }
       };
 
-      heroku.appSetups().create(attributes, cb);      
-    }    
+      heroku.appSetups().create(attributes, cb);
+    }
   ], function(err, result) {
     done(err, result);
   });
-}
+};
 
 var herokuTarball = function(options, done) {
   var instance = options.instance || 'development';
-  var tarballName = options.tarballName || instance
+  var tarballName = options.tarballName || instance;
   var tarballPath = path.join(config.temp, tarballName + '.tar.gz');
   var files = path.join(config.instances, instance, '**/*');
   yassert.file(path.join(config.instances, instance, 'app.json'));
@@ -166,7 +171,7 @@ var herokuTarball = function(options, done) {
     if (err) return err;
     return done(err, tarballPath);
   });
-}
+};
 
 var lib = {
   herokuAppsList: herokuAppsList,
@@ -185,7 +190,7 @@ gulp.task('heroku:deploy', function(done) {
   var options = {
     app: argv.app || null,
     instance: argv.instance || 'development'
-  }
+  };
 
   async.waterfall([
     function(cb) {

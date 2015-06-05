@@ -16,14 +16,14 @@ describe('gulp heroku:apps:list', function() {
   });
 
   before('set up stub', function() {
-    stub = sinon.stub(Heroku.prototype, "apps").returns({
+    stub = sinon.stub(Heroku.prototype, 'apps').returns({
       list: function(cb) {
         cb(null, [{name: 'xxx'}]);
       }
     });
   });
 
-  it('should just show how a stub works using the heroku:apps:list call', function(done) {
+  it('should demo stub usage', function(done) {
     heroku.herokuAppsList(function(err, apps) {
       expect(stub.callCount).to.equal(1);
       expect(apps).to.deep.equal(['xxx']);

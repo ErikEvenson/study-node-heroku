@@ -1,5 +1,5 @@
 var
-  aws = require('aws-sdk');
+  aws = require('aws-sdk'),
   config = require('../config'),
   gulp = require('gulp'),
   gutil = require('gulp-util'),
@@ -14,9 +14,9 @@ var keys = require(path.join(config.secrets, 'keys'));
     secretAccessKey: keys.AWS_SECRET_ACCESS_KEY
   });
 
-var s3 = new aws.S3({computeChecksums:true});
+var s3 = new aws.S3({computeChecksums: true});
 
-var awsCreateBucket = function (bucketName, cb) {
+var awsCreateBucket = function(bucketName, cb) {
   s3.createBucket({
     Bucket: bucketName
   }, cb);
@@ -29,7 +29,7 @@ var awsGetPutUrl = function(filename, done) {
   s3.getSignedUrl('putObject', params, function(err, putUrl) {
     done(err, putUrl);
   });
-}
+};
 
 var lib = {
   awsCreateBucket: awsCreateBucket,
