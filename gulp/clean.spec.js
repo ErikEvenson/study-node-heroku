@@ -45,13 +45,13 @@ describe('gulp clean', function() {
   var instancePath = path.join(config.instances, INSTANCE);
 
   afterEach(function(done) {
-    this.timeout(5000);
+    this.timeout(1000);
     del.sync([instancePath]);
     done();
   });
 
   beforeEach(function(done) {
-    this.timeout(50000);
+    this.timeout(1000);
     del.sync([instancePath]);
     done();
   });
@@ -60,7 +60,7 @@ describe('gulp clean', function() {
     var dummyFilePath = path.join(instancePath, 'dummy.txt');
 
     beforeEach(function(done) {
-      this.timeout(50000);
+      this.timeout(1000);
       mkdirp.sync(instancePath);
       fs.writeFileSync(dummyFilePath, 'dummy content');
       clean(done);
@@ -76,7 +76,7 @@ describe('gulp clean', function() {
 
   context('without existing instance directory', function() {
     beforeEach(function(done) {
-      this.timeout(50000);
+      this.timeout(1000);
       clean(done);
     });
 

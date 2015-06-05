@@ -15,12 +15,12 @@ var
 
 describe('gulp build', function() {
   afterEach(function(done) {
-    this.timeout(10000);
+    this.timeout(1000);
     clean.cleanInstance(INSTANCE, done);
   });
 
   beforeEach(function(done) {
-    this.timeout(10000);
+    this.timeout(1000);
     clean.cleanInstance(INSTANCE, done);
   });
 
