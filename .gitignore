@@ -1,3 +1,6 @@
+# Ignore bower components
+bower_components/
+
 # Ignore test output directory
 /test/e2e/output/*
 

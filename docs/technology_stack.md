@@ -6,6 +6,10 @@ These are the technologies used in this project.
 
 ## bash-installed
 
+## bower-installed
+
+- [angular](https://github.com/angular/bower-angular) 1.4.0 - Bower package for AngularJS
+
 ## gem-installed
 
 ## npm-installed

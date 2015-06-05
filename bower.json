@@ -1,0 +1,21 @@
+{
+  "name": "study-node-heroku",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ErikEvenson/study-node-heroku",
+  "authors": [
+    "Erik Evenson <erik.e.evenson@gmail.com>"
+  ],
+  "description": "study-node-heroku",
+  "main": "./src/bin/www",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.0"
+  }
+}
