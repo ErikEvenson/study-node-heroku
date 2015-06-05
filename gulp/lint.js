@@ -23,10 +23,13 @@ var beeper = function(file, cb) {
 var config = require('../config');
 
 var jsLintFiles = [
-  path.join(config.basepath, 'src/**/*.js'),
-  path.join(config.basepath, 'glup/**/*.js'),
-  path.join(config.basepath, 'test/**/*.js'),
-  path.join(config.basepath, 'gulpfile.js')
+  path.join(config.basepath, '**/*.js'),
+
+  // Don't lint bower components
+  '!**/bower_components/**/*',
+
+  // Don't lint node modules
+  '!**/node_modules/**/*'
 ];
 
 gulp.task('lint', ['lint:gjslint', 'lint:jshint'], function() {
