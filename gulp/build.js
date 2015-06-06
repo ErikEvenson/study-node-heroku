@@ -21,9 +21,12 @@ var lib = {
       path.join(config.basepath, 'package.json')
     ];
 
+    // Remove source directory.
+    sourceFiles.push(path.join('!' + config.basepath, options.source));
+
     // Remove client-side jade source files as these are processed into html
     // files.
-    sourceFiles.push('!' + config.basepath, options.source, '**/public/**/*.html');
+    sourceFiles.push(path.join('!' + config.basepath, options.source, '**/public/views/**/*.jade'));
 
     async.series([
       function(cb1) {

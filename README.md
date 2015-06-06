@@ -10,6 +10,7 @@ Make sure you have [Node.js](http://nodejs.org/), [bower](http://bower.io), and 
 $ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
 $ cd node-js-getting-started
 $ npm install
+$ bower install
 $ npm start
 ```
 
