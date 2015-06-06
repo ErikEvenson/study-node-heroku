@@ -10,10 +10,11 @@ block content
       a(href='/signup') Sign up
     p
       a(href='/signin') Sign in
-    
-    section(ng-include="'/public/core/views/core.public.views.index.html'")
 
+  section(ng-view)
   script(type="text/javascript", src="/public/core/bower_components/angular/angular.js")
+  script(type="text/javascript", src="/public/core/bower_components/angular-route/angular-route.js")
   script(type="text/javascript", src="/public/core/module.js")
   script(type="text/javascript" src="/public/core/controllers/index.js")
+  script(type="text/javascript", src="/public/core/config.js")
   script(type="text/javascript", src="/public/core/application.js")
