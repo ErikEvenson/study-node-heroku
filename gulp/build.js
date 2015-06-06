@@ -26,7 +26,9 @@ var lib = {
 
     // Remove client-side jade source files as these are processed into html
     // files.
-    sourceFiles.push(path.join('!' + config.basepath, options.source, '**/public/views/**/*.jade'));
+    sourceFiles.push(path.join(
+      '!' + config.basepath, options.source, '**/public/views/**/*.jade'
+    ));
 
     async.series([
       function(cb1) {

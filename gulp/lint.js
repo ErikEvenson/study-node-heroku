@@ -29,7 +29,10 @@ var jsLintFiles = [
   '!**/bower_components/**/*',
 
   // Don't lint node modules
-  '!**/node_modules/**/*'
+  '!**/node_modules/**/*',
+
+  // Don't lint instances
+  path.join('!' + config.basepath, 'instances/**/*.js')
 ];
 
 gulp.task('lint', ['lint:gjslint', 'lint:jshint'], function() {
