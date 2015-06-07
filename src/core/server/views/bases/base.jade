@@ -11,16 +11,16 @@ html
     //- include ../includes/cssBlock.html
     //- {# index.html/head/respond #}
 
-  body
+  body#e2e
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     block content
 
-    //- if (user)
-    //-     script.
-    //-         window.user = !{JSON.stringify(user)};
-    //- else
-    //-     script.
-    //-         window.user = null;
+    if (user)
+        script.
+            window.user = !{JSON.stringify(user)};
+    else
+        script.
+            window.user = null;
 
     //- include ../includes/jsBlock.html

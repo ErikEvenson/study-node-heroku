@@ -1,5 +1,6 @@
 // at the top of the test spec:
 var fs = require('fs');
+var should = require('chai').should();
 
 // abstract writing screen shot to a file
 function writeScreenShot(data, filename) {
@@ -22,7 +23,7 @@ describe('first', function() {
       writeScreenShot(png, __dirname + '/output/first.png');
     });
 
-    var el = element(by.id('hello'));
-    expect(el.getText()).toEqual('Hello World');
+    var el = element(by.id('e2e'));
+    should.exist(el);
   });
 });

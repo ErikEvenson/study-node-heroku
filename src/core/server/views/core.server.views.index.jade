@@ -1,17 +1,15 @@
 extends ./bases/base.jade
 
 block content
-  if (name)
-    h2= "Hello " + name.first
+  if (user)
     a(href="/signout") Sign out
   else
-    h2#hello Hello World
     p
       a(href='/signup') Sign up
     p
       a(href='/signin') Sign in
 
-  section(ng-view)
+  section(ng-view)  
   script(type="text/javascript", src="/public/core/bower_components/angular/angular.js")
   script(type="text/javascript", src="/public/core/bower_components/angular-route/angular-route.js")
   script(type="text/javascript", src="/public/core/module.js")

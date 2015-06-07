@@ -12,6 +12,6 @@ exports.render = function(req, res) {
 
   res.render('core.server.views.index.jade', {
     title: 'Hello World',
-    name: req.user ? req.user.name : ''
+    user: JSON.stringify(req.user)
   });
 };

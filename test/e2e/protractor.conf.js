@@ -25,7 +25,8 @@ exports.config = {
     };
 
     process.env.PORT = 3001;
-    require('../../src/bin/www');
+    // require('../../src/bin/www');
+    require('../../instances/development/bin/www');
   },
   specs: [
     '*.spec.js'
