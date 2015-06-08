@@ -4,11 +4,7 @@ angular.module('core').controller(
     '$scope',
     'Authentication',
     function($scope, Authentication) {
-      if (Authentication.user) {
-        $scope.email = Authentication.user.email;
-      } else {
-        $scope.email = 'MEAN Application';
-      }
+      $scope.authentication = Authentication;
     }
   ]
 );

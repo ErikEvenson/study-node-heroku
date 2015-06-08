@@ -1,0 +1,15 @@
+section(data-ng-controller="OrganizationsController", data-ng-init="findOne()")
+  h1 Edit organization
+  form(data-ng-submit="update()", novalidate)
+    div
+      label(for="name") Name
+      div
+        input#name(type="text", data-ng-model="organization.name", placeholder="Name", required)
+    div
+      label(for="email") Email
+      div
+        input#email(type="text", data-ng-model="organization.email", placeholder="Email")
+    div
+      input(type="submit", value="Update")
+    div(data-ng-show="error")
+      strong(data-ng-bind="error")

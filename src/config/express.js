@@ -43,7 +43,8 @@ module.exports = function() {
 
   // Set up view engines
   viewPaths = [
-    path.join(__dirname, '../core/server/views')
+    path.join(__dirname, '../core/server/views'),
+    path.join(__dirname, '../organizations/server/views')
   ];
 
   app.set('views', viewPaths);
@@ -59,11 +60,17 @@ module.exports = function() {
   // Set up routes
   require('../core/server/routes/server.js')(app);
   require('../core/server/routes/users.js')(app);
+  require('../organizations/server/routes/organizations.js')(app);
 
   // Serve static assets
   app.use(
     '/public/core',
     express.static(path.join(__dirname, '../core/public'))
+  );
+
+  app.use(
+    '/public/organizations',
+    express.static(path.join(__dirname, '../organizations/public'))
   );
 
   return app;

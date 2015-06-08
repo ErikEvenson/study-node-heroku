@@ -9,6 +9,7 @@ module.exports = function() {
   var db = mongoose.connect(environment.db);
 
   require('../core/server/models/users');
+  require('../organizations/server/models/organizations');
 
   // Close the Mongoose connection on Control+C
   process.on('SIGINT', function() {

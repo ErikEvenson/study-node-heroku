@@ -1,5 +1,15 @@
 section(ng-controller="CoreController")
-  p
-    input#text1(type="text", ng-model="email")
-  p
-    input#text2(type="text", ng-model="email")
+  div(data-ng-show="!authentication.user")
+    p
+      a(href="/signup") Signup
+    p
+      a(href="/signin") Signin
+  div(data-ng-show="authentication.user")
+    h1 Hello
+      span(data-ng-bind="authentication.user.name.last")
+    a(href="/signout") Signout
+    ul
+      li
+        a(href="/#!/organizations") List organizations
+      li
+        a(href="/#!/organizations/create") Create organizations

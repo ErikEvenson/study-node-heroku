@@ -2,7 +2,12 @@ var mainApplicationModuleName = 'study-node-heroku';
 
 var mainApplicationModule = angular.module(
   mainApplicationModuleName,
-  ['ngRoute', 'core']
+  [
+    'ngResource',
+    'ngRoute',
+    'core',
+    'organizations'
+  ]
 );
 
 mainApplicationModule.config(['$locationProvider',
