@@ -1,4 +1,5 @@
 var
+  // exec = require('child_process').exec,
   gulp = require('gulp'),
   mocha = require('gulp-mocha'),
   shell = require('gulp-shell');

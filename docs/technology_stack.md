@@ -37,7 +37,7 @@ These are the technologies used in this project.
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint) 1.11.0 - JSHint plugin for gulp
 - [gulp-mocha](https://www.npmjs.com/package/gulp-mocha) 2.1.0 - Run Mocha tests
 - [gulp-newer](https://www.npmjs.com/package/gulp-newer) 0.5.0 - Only pass through newer source files
-- [gulp-shell](https://www.npmjs.com/package/gulp-shell) 0.4.1 - A handy command line interface for gulp
+- [gulp-shell](https://www.npmjs.com/package/gulp-shell) 0.4.2 - A handy command line interface for gulp
 - [gulp-tar](https://www.npmjs.com/package/gulp-tar) 1.4.0 - Create tarball from files
 - [gulp-util](https://www.npmjs.com/package/gulp-util) 3.0.4 - Utility functions for gulp plugins
 - [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
@@ -51,7 +51,7 @@ These are the technologies used in this project.
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
 - [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - Local username and password authentication strategy for Passport.
-- [q]()
+- [q](https://www.npmjs.com/package/q) 1.4.1 - A library for promises (CommonJS/Promises/A,B,D)
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.

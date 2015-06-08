@@ -50,7 +50,7 @@
     "gulp-jshint": "1.11.0",
     "gulp-mocha": "2.1.0",
     "gulp-newer": "0.5.0",
-    "gulp-shell": "0.4.1",
+    "gulp-shell": "0.4.2",
     "gulp-tar": "1.4.0",
     "gulp-util": "3.0.4",
     "heroku-client": "1.11.0",

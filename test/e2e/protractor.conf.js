@@ -5,10 +5,11 @@
 var config = require('../../config');
 var basepath = config.basepath;
 var build = require('../../gulp/build');
+var path = require('path');
 var q = require('q');
 var deferred = q.defer();
 
-var xxx = function() {
+var prepareInstance = function() {
   return q.Promise(function(resolve, reject, notify) {
     process.env.PORT = 3001;
 
@@ -19,7 +20,7 @@ var xxx = function() {
     };
 
     build.buildInstance(options, function(err) {
-      require('../../instances/test/bin/www');
+      require(path.join(config.instances, options.instance, 'bin/www'));
       resolve();
     });
   });
@@ -28,7 +29,7 @@ var xxx = function() {
 exports.config = {
   baseUrl: 'http://localhost:3001',
   beforeLaunch: function() {
-    xxx().then(function() {
+    prepareInstance().then(function() {
       deferred.resolve();
     });
 
