@@ -4,6 +4,7 @@ var
   async = require('async'),
   aws = require('./aws'),
   config = require('../config'),
+  del = require('del'),
   fs = require('fs'),
   gcallback = require('gulp-callback'),
   gzip = require('gulp-gzip'),
