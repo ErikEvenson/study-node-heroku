@@ -12,18 +12,17 @@ function writeScreenShot(data, filename) {
 
 describe('first', function() {
   beforeEach(function() {
-      isAngularSite(false);
+      isAngularSite(true);
   });
 
   it('runs dummy test', function() {
-    browser.ignoreSynchronization = true;
     browser.get('/');
+
+    var el = element(by.id('e2e'));
+    expect(browser.getTitle()).toEqual('Hello World');
 
     browser.takeScreenshot().then(function(png) {
       writeScreenShot(png, __dirname + '/output/first.png');
     });
-
-    var el = element(by.id('e2e'));
-    should.exist(el);
   });
 });

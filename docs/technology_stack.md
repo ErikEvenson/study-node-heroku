@@ -51,6 +51,7 @@ These are the technologies used in this project.
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
 - [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - Local username and password authentication strategy for Passport.
+- [q]()
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.

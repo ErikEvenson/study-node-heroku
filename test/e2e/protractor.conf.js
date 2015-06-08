@@ -2,10 +2,37 @@
  * Provides protractor config.
 */
 
+var config = require('../../config');
+var basepath = config.basepath;
+var build = require('../../gulp/build');
+var q = require('q');
+var deferred = q.defer();
+
+var xxx = function() {
+  return q.Promise(function(resolve, reject, notify) {
+    process.env.PORT = 3001;
+
+    options = {
+      clean: true,
+      instance: 'test',
+      source: 'src'
+    };
+
+    build.buildInstance(options, function(err) {
+      require('../../instances/test/bin/www');
+      resolve();
+    });
+  });
+};
+
 exports.config = {
   baseUrl: 'http://localhost:3001',
   beforeLaunch: function() {
-    console.log('TBD delete test output.');
+    xxx().then(function() {
+      deferred.resolve();
+    });
+
+    return deferred.promise;
   },
   directConnect: true,
   multiCapabilities: [
@@ -25,8 +52,6 @@ exports.config = {
     };
 
     process.env.PORT = 3001;
-    // require('../../src/bin/www');
-    require('../../instances/development/bin/www');
   },
   specs: [
     '*.spec.js'
