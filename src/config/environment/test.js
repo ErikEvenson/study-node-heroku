@@ -3,6 +3,6 @@
  */
 
 module.exports = {
-  db: null,
+  db: 'mongodb://localhost/test',
   sessionSecret: 'testSecret555'
 };

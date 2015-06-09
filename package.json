@@ -59,7 +59,9 @@
     "mock-fs": "2.7.0",
     "q": "1.4.1",
     "request": "2.57.0",
+    "should": "6.0.3",
     "sinon": "1.14.1",
+    "supertest": "1.0.1",
     "uuid": "2.0.1",
     "yargs": "3.9.1",
     "yeoman-assert": "2.0.0"

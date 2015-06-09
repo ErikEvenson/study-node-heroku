@@ -30,6 +30,11 @@ var lib = {
       '!' + config.basepath, options.source, '**/public/views/**/*.jade'
     ));
 
+    // Remove test files.
+    sourceFiles.push(path.join(
+      '!' + config.basepath, options.source, '**/*.spec.js'
+    ));
+
     async.series([
       function(cb1) {
         if (options.clean) {
