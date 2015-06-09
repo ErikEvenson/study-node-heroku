@@ -36,6 +36,7 @@ exports.config = {
     return deferred.promise;
   },
   directConnect: true,
+  // framework: 'jasmine2',
   multiCapabilities: [
     {
       browserName: 'chrome'
