@@ -4,14 +4,24 @@ var
   mocha = require('gulp-mocha'),
   shell = require('gulp-shell');
 
-gulp.task(
-  'test',
-  ['lint', 'test:e2e', 'test:gulp', 'test:server:unit'],
-  function() {}
-);
+var lib = {
+};
+
+module.exports = lib;
+
+var e2eCommand = 'xvfb-run protractor test/e2e/protractor.conf.js';
+
+// Run everything serially
+gulp.task('test', shell.task([
+  'gulp lint',
+  'gulp test:gulp',
+  'gulp test:server:unit',
+  'gulp test:client:unit',
+  e2eCommand
+]));
 
 gulp.task('test:e2e', shell.task([
-  'xvfb-run protractor test/e2e/protractor.conf.js'
+  e2eCommand
 ]));
 
 gulp.task('test:client:unit', function() {
