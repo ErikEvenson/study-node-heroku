@@ -21,6 +21,11 @@ gulp.task('test', shell.task([
   e2eCommand
 ]));
 
+gulp.task('test:unit', shell.task([
+  'gulp test:server:unit',
+  'gulp test:client:unit'
+]));
+
 gulp.task('test:e2e', shell.task([
   e2eCommand
 ]));
