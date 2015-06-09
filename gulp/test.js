@@ -1,6 +1,7 @@
 var
   // exec = require('child_process').exec,
   gulp = require('gulp'),
+  karma = require('gulp-karma'),
   mocha = require('gulp-mocha'),
   shell = require('gulp-shell');
 
@@ -26,7 +27,28 @@ gulp.task('test:e2e', shell.task([
 
 gulp.task('test:client:unit', function() {
   process.env.NODE_ENV = 'test';
-  return;
+  files = [
+    // bower
+    'src/core/public/bower_components/angular/angular.js',
+    'src/core/public/bower_components/angular-resource/angular-resource.js',
+    'src/core/public/bower_components/angular-route/angular-route.js',
+    'src/core/public/bower_components/angular-mocks/angular-mocks.js',
+
+    // features
+    'src/core/public/module.js',
+    'src/core/public/*[!bower_components]*/*.js',
+    'src/organizations/public/module.js',
+    'src/organizations/public/*[!bower_components]*/*.js'
+  ];
+
+  return gulp.src(files)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      throw err;
+    });
 });
 
 gulp.task('test:server:unit', function() {

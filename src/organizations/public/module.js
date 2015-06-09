@@ -1,2 +1,2 @@
-angular.module('organizations', []);
+angular.module('organizations', ['ngResource', 'ngRoute', 'core']);
 

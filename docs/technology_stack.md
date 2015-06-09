@@ -9,6 +9,7 @@ These are the technologies used in this project.
 ## bower-installed
 
 - [angular](https://github.com/angular/bower-angular) 1.4.0 - Bower package for AngularJS
+- [angular-mocks](https://github.com/angular/bower-angular-mocks) 1.4.0
 - [angular-resource](https://github.com/angular/bower-angular-resource) 1.4.0
 - [angular-route](https://github.com/angular/bower-angular-route) 1.4.0
 
@@ -36,6 +37,7 @@ These are the technologies used in this project.
 - [gulp-if-else](https://www.npmjs.com/package/gulp-if-else) 1.0.3 - Conditional task with "if" callback and "else" callback
 - [gulp-jade](https://www.npmjs.com/package/gulp-jade) 1.0.1 - Compile Jade templates
 - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint) 1.11.0 - JSHint plugin for gulp
+- [gulp-karma](https://www.npmjs.com/package/gulp-karma) 0.0.4 - Karma plugin for gulp
 - [gulp-mocha](https://www.npmjs.com/package/gulp-mocha) 2.1.0 - Run Mocha tests
 - [gulp-newer](https://www.npmjs.com/package/gulp-newer) 0.5.0 - Only pass through newer source files
 - [gulp-shell](https://www.npmjs.com/package/gulp-shell) 0.4.2 - A handy command line interface for gulp
@@ -43,6 +45,10 @@ These are the technologies used in this project.
 - [gulp-util](https://www.npmjs.com/package/gulp-util) 3.0.4 - Utility functions for gulp plugins
 - [heroku-client](https://www.npmjs.com/package/heroku-client) 1.11.0 - A wrapper for the Heroku v3 API
 - [jade](https://www.npmjs.com/package/jade) 1.10.0 - 'Robust, elegant, feature rich template engine for nodejs.'
+- [jasmine-core](https://www.npmjs.com/package/jasmine-core) 2.3.4 - Official packaging of Jasmine's core files for use by Node.js projects.
+- [karma](https://www.npmjs.com/package/karma) 0.12.36 - Spectacular Test Runner for JavaScript.
+- [karma-jasmine](https://www.npmjs.com/package/karma-jasmine) 0.3.5 - A Karma plugin - adapter for Jasmine testing framework.
+- [karma-phantomjs-launcher](https://www.npmjs.com/package/karma-phantomjs-launcher) 0.2.0 - A Karma plugin. Launcher for PhantomJS.
 - [lodash](https://www.npmjs.com/package/lodash) 3.9.3 - The modern build of lodash modular utilities
 - [map-stream](https://www.npmjs.com/package/map-stream) 0.0.5 - construct pipes of streams of events
 - [method-override](https://www.npmjs.com/package/method-override) 2.3.3 - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
@@ -52,6 +58,7 @@ These are the technologies used in this project.
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
 - [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - Local username and password authentication strategy for Passport.
+- [phantomjs](https://www.npmjs.com/package/phantomjs) 1.9.17 - Headless WebKit with JS API
 - [q](https://www.npmjs.com/package/q) 1.4.1 - A library for promises (CommonJS/Promises/A,B,D)
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [sinon](https://www.npmjs.com/package/sinon) 1.14.1 - JavaScript test spies, stubs and mocks.
