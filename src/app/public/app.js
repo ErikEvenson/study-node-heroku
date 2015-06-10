@@ -1,4 +1,6 @@
-var mainApplicationModuleName = 'study-node-heroku';
+var
+  angular = require('angular'),
+  mainApplicationModuleName = 'study-node-heroku';
 
 var mainApplicationModule = angular.module(
   mainApplicationModuleName,
