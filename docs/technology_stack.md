@@ -54,7 +54,7 @@ These are the technologies used in this project.
 - [method-override](https://www.npmjs.com/package/method-override) 2.3.3 - Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
 - [mkdirp](https://www.npmjs.com/package/mkdirp) 0.5.1 - Recursively mkdir, like mkdir -p
 - [mock-fs](https://www.npmjs.com/package/mock-fs) 2.7.0 - A configurable mock file system.
-- [mongoose](https://www.npmjs.com/package/mongoose) 4.0.4 - Mongoose MongoDB ODM
+- [mongoose](https://www.npmjs.com/package/mongoose) 4.0.5 - Mongoose MongoDB ODM
 - [morgan](https://www.npmjs.com/package/morgan) 1.5.3 - HTTP request logger middleware for node.js
 - [passport](https://www.npmjs.com/package/passport) 0.2.2 - Simple, unobtrusive authentication for Node.js.
 - [passport-local](https://www.npmjs.com/package/passport-local) 1.0.0 - Local username and password authentication strategy for Passport.
