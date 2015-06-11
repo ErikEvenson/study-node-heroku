@@ -13,6 +13,7 @@ These are the technologies used in this project.
 ## npm-installed
 
 - [angular](https://www.npmjs.com/package/angular) 1.4.0 - HTML enhanced for web apps
+- [angular-mocks](https://www.npmjs.com/package/angular-mocks) 1.4.0 - AngularJS mocks for testing
 - [angular-resource](https://www.npmjs.com/package/angular-resource) 1.4.0 - AngularJS module for interacting with RESTful server-side data sources
 - [angular-route](https://www.npmjs.com/package/angular-route) 1.4.0 - AngularJS router module
 - [async](https://www.npmjs.com/package/async) 1.0.0 - Higher-order functions and common patterns for asynchronous code
@@ -48,6 +49,7 @@ These are the technologies used in this project.
 - [jade](https://www.npmjs.com/package/jade) 1.10.0 - 'Robust, elegant, feature rich template engine for nodejs.'
 - [jasmine-core](https://www.npmjs.com/package/jasmine-core) 2.3.4 - Official packaging of Jasmine's core files for use by Node.js projects.
 - [karma](https://www.npmjs.com/package/karma) 0.12.36 - Spectacular Test Runner for JavaScript.
+- [karma-browserify](https://www.npmjs.com/package/karma-browserify) 4.2.1 - A fast browserify integration for Karma that handles large projects with ease
 - [karma-jasmine](https://www.npmjs.com/package/karma-jasmine) 0.3.5 - A Karma plugin - adapter for Jasmine testing framework.
 - [karma-phantomjs-launcher](https://www.npmjs.com/package/karma-phantomjs-launcher) 0.2.0 - A Karma plugin. Launcher for PhantomJS.
 - [lodash](https://www.npmjs.com/package/lodash) 3.9.3 - The modern build of lodash modular utilities

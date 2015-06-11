@@ -39,6 +39,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "angular-mocks": "1.4.0",
     "async": "1.0.0",
     "aws-sdk": "2.1.32",
     "browserify": "10.2.4",
@@ -64,6 +65,7 @@
     "heroku-client": "1.11.0",
     "jasmine-core": "2.3.4",
     "karma": "0.12.36",
+    "karma-browserify": "4.2.1",
     "karma-jasmine": "0.3.5",
     "karma-phantomjs-launcher": "0.2.0",
     "map-stream": "0.0.5",

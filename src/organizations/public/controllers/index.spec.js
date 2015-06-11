@@ -1,8 +1,10 @@
+require('../module');
+
 describe('Testing Organizations Controller', function() {
   var _scope, OrganizationsController;
 
   beforeEach(function() {
-    module('organizations');
+    angular.mock.module('organizations');
 
     jasmine.addMatchers({
       toEqualData: function(util, customEqualityTesters) {
@@ -15,8 +17,10 @@ describe('Testing Organizations Controller', function() {
         };
       }
     });
+
     inject(function($rootScope, $controller) {
       _scope = $rootScope.$new();
+
       OrganizationsController = $controller('OrganizationsController', {
         $scope: _scope
       });
@@ -32,6 +36,7 @@ describe('Testing Organizations Controller', function() {
           name: 'organization',
           email: 'org@example.com'
         });
+
         var sampleOrganizations = [sampleOrganization];
 
         $httpBackend.expectGET('api/organizations')
@@ -39,7 +44,6 @@ describe('Testing Organizations Controller', function() {
 
         _scope.find();
         $httpBackend.flush();
-
         expect(_scope.organizations).toEqualData(sampleOrganizations);
       });
     })
@@ -62,7 +66,6 @@ describe('Testing Organizations Controller', function() {
 
         _scope.findOne();
         $httpBackend.flush();
-
         expect(_scope.organization).toEqualData(sampleOrganization);
       });
    })

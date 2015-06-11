@@ -1,6 +1,6 @@
 module.exports = function(config) {
   config.set({
-    frameworks: ['jasmine'],
+    frameworks: ['browserify', 'jasmine'],
     reporters: ['progress'],
     browsers: ['PhantomJS'],
     captureTimeout: 60000,
