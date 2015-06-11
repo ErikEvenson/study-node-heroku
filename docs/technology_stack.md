@@ -13,6 +13,8 @@ These are the technologies used in this project.
 ## npm-installed
 
 - [angular](https://www.npmjs.com/package/angular) 1.4.0 - HTML enhanced for web apps
+- [angular-resource](https://www.npmjs.com/package/angular-resource) 1.4.0 - AngularJS module for interacting with RESTful server-side data sources
+- [angular-route](https://www.npmjs.com/package/angular-route) 1.4.0 - AngularJS router module
 - [async](https://www.npmjs.com/package/async) 1.0.0 - Higher-order functions and common patterns for asynchronous code
 - [aws-sdk](https://www.npmjs.com/package/aws-sdk) 2.1.32 - AWS SDK for JavaScript
 - [body-parser](https://www.npmjs.com/package/body-parser) 1.12.4 - Node.js body parsing middleware

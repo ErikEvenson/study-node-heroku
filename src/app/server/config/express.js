@@ -66,17 +66,17 @@ module.exports = function() {
 
   // Serve static assets
   app.use(
-    '/public/app',
+    '/app/public',
     express.static(path.join(instancePath, 'app/public'))
   );
 
   app.use(
-    '/public/core',
+    '/core/public',
     express.static(path.join(instancePath, 'core/public'))
   );
 
   app.use(
-    '/public/organizations',
+    '/organizations/public',
     express.static(path.join(instancePath, 'organizations/public'))
   );
 

@@ -8,20 +8,20 @@ var
 
 var lib = {
   templates: function(options, cb) {
-    var templatePath = path.join(config.instances, options.instance, 'app/public');
+    var templatesPath = path.join(config.instances, options.instance, 'app/public');
 
     var files = [
-      path.join(config.basepath, options.source, '**/public/views/**/*.jade')
+      path.join(config.instances, options.instance, '**/public/views/*.jade')
     ];
 
     return gulp.src(files)
       .pipe(jade())
       .pipe(templateCache('templates.js', {
-        // base: path.join(config.build.basepath, 'public'),
+        // base: path.join(config.instances, options.instance, 'app/public/views'),
         moduleSystem: 'Browserify',
         standalone: true
       }))
-      .pipe(gulp.dest(templatePath))
+      .pipe(gulp.dest(templatesPath))
       .on('end', cb);
   }
 };
@@ -31,7 +31,6 @@ module.exports = lib;
 gulp.task('templates', function(done) {
   var options = {
     instance: argv.instance || 'development',
-    source: argv.source || 'src'
   };
 
   lib.templates(options, done);

@@ -1,9 +1,7 @@
-var
-  angular = require('angular'),
-  mainApplicationModuleName = 'study-node-heroku';
+var angular = require('angular');
 
-var mainApplicationModule = angular.module(
-  mainApplicationModuleName,
+angular.module(
+  'app',
   [
     'ngResource',
     'ngRoute',
@@ -12,15 +10,13 @@ var mainApplicationModule = angular.module(
   ]
 );
 
-mainApplicationModule.config(['$locationProvider',
-  function($locationProvider) {
-    $locationProvider.hashPrefix('!');
-  }
-]);
-
-// Solves a Facebook OAuth issue...
-if (window.location.hash === '#_=_') window.location.hash = '#!';
-
 angular.element(document).ready(function() {
-  angular.bootstrap(document, [mainApplicationModuleName]);
+  angular.bootstrap(document, ['app']);
 });
+
+require('./templates');
+require('./config');
+
+// Modules
+require('../../core/public/module');
+require('../../organizations/public/module');
