@@ -10,6 +10,7 @@ var
 var lib = {
   jadeClient: function(instance, source, cb) {
     var instancePath = path.join(config.instances, instance);
+
     var files = [
       path.join(config.basepath, source, '**/public/views/**/*.jade')
     ];

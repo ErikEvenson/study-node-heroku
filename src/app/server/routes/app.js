@@ -3,6 +3,6 @@
  */
 
 module.exports = function(app) {
-  var index = require('../controllers/server');
+  var index = require('../controllers/app');
   app.get('/', index.render);
 };

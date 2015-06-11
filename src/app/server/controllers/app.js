@@ -6,7 +6,7 @@
 exports.render = function(req, res) {
   req.session.lastVisit = new Date();
 
-  res.render('core.server.views.index.jade', {
+  res.render('app.server.views.index.jade', {
     title: 'Hello World',
     user: JSON.stringify(req.user)
   });

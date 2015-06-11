@@ -16,6 +16,7 @@ var
 
 module.exports = function() {
   var app = express();
+  var instancePath = path.join(__dirname, '../../..');
 
   // app.use(express.static(__dirname + '/../public'));
 
@@ -43,8 +44,9 @@ module.exports = function() {
 
   // Set up view engines
   viewPaths = [
-    path.join(__dirname, '../core/server/views'),
-    path.join(__dirname, '../organizations/server/views')
+    path.join(instancePath, 'app/server/views'),
+    path.join(instancePath, 'core/server/views'),
+    path.join(instancePath, 'organizations/server/views')
   ];
 
   app.set('views', viewPaths);
@@ -58,20 +60,29 @@ module.exports = function() {
   app.use(passport.session());
 
   // Set up routes
-  require('../core/server/routes/server.js')(app);
-  require('../core/server/routes/users.js')(app);
-  require('../organizations/server/routes/organizations.js')(app);
+  require(path.join(instancePath, 'app/server/routes/app'))(app);
+  require(path.join(instancePath, 'core/server/routes/users'))(app);
+
+  require(path.join(
+    instancePath,
+    'organizations/server/routes/organizations'
+  ))(app);
 
   // Serve static assets
   app.use(
-    '/public/core',
-    express.static(path.join(__dirname, '../core/public'))
+    '/app/public',
+    express.static(path.join(instancePath, 'app/public'))
   );
 
-  app.use(
-    '/public/organizations',
-    express.static(path.join(__dirname, '../organizations/public'))
-  );
+  // app.use(
+  //   '/core/public',
+  //   express.static(path.join(instancePath, 'core/public'))
+  // );
+
+  // app.use(
+  //   '/organizations/public',
+  //   express.static(path.join(instancePath, 'organizations/public'))
+  // );
 
   return app;
 };

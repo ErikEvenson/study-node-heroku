@@ -1,8 +1,8 @@
 var
   app,
   db,
-  express = require('../../../config/express.js'),
-  mongoose = require('../../../config/mongoose.js'),
+  express = require('../../../app/server/config/express.js'),
+  mongoose = require('../../../app/server/config/mongoose.js'),
   request = require('supertest'),
   should = require('should');
 

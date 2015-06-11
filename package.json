@@ -3,12 +3,17 @@
   "version": "0.0.1",
   "description": "study-node-heroku",
   "scripts": {
+    "start": "node ./bin/www",
     "test": "gulp test"
   },
   "dependencies": {
+    "angular": "1.4.0",
+    "angular-resource": "1.4.0",
+    "angular-route": "1.4.0",
     "body-parser": "1.12.4",
     "compression": "1.4.4",
     "connect-flash": "0.1.1",
+    "debug": "^2.2.0",
     "express": "4.12.4",
     "express-session": "1.11.2",
     "gulp-jade": "1.0.1",
@@ -36,10 +41,11 @@
   "devDependencies": {
     "async": "1.0.0",
     "aws-sdk": "2.1.32",
+    "browserify": "10.2.4",
     "chai": "2.3.0",
-    "debug": "2.2.0",
     "del": "1.2.0",
     "gulp": "3.8.11",
+    "gulp-angular-templatecache": "^1.6.0",
     "gulp-cached": "1.1.0",
     "gulp-callback": "0.0.3",
     "gulp-develop-server": "0.4.3",
@@ -51,6 +57,7 @@
     "gulp-karma": "0.0.4",
     "gulp-mocha": "2.1.0",
     "gulp-newer": "0.5.0",
+    "gulp-rename": "1.2.2",
     "gulp-shell": "0.4.2",
     "gulp-tar": "1.4.0",
     "gulp-util": "3.0.4",
@@ -69,6 +76,7 @@
     "sinon": "1.14.1",
     "supertest": "1.0.1",
     "uuid": "2.0.1",
+    "vinyl-source-stream": "1.1.0",
     "yargs": "3.9.1",
     "yeoman-assert": "2.0.0"
   }
