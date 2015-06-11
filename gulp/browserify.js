@@ -21,7 +21,10 @@ module.exports = lib;
 
 gulp.task('browserify', function(done) {
   var options = {
-    bundle: argv.bundle || path.join(config.instances, 'development/app/public/app.js'),
+    bundle: argv.bundle || path.join(
+      config.instances,
+      'development/app/public/app.js'
+    ),
     main: argv.main || path.join(config.basepath, 'src/app/public/app.js')
   };
 

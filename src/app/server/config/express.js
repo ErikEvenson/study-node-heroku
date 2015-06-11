@@ -62,7 +62,11 @@ module.exports = function() {
   // Set up routes
   require(path.join(instancePath, 'app/server/routes/app'))(app);
   require(path.join(instancePath, 'core/server/routes/users'))(app);
-  require(path.join(instancePath, 'organizations/server/routes/organizations'))(app);
+
+  require(path.join(
+    instancePath,
+    'organizations/server/routes/organizations'
+  ))(app);
 
   // Serve static assets
   app.use(
@@ -70,15 +74,15 @@ module.exports = function() {
     express.static(path.join(instancePath, 'app/public'))
   );
 
-  app.use(
-    '/core/public',
-    express.static(path.join(instancePath, 'core/public'))
-  );
+  // app.use(
+  //   '/core/public',
+  //   express.static(path.join(instancePath, 'core/public'))
+  // );
 
-  app.use(
-    '/organizations/public',
-    express.static(path.join(instancePath, 'organizations/public'))
-  );
+  // app.use(
+  //   '/organizations/public',
+  //   express.static(path.join(instancePath, 'organizations/public'))
+  // );
 
   return app;
 };

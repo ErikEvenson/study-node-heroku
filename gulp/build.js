@@ -53,8 +53,8 @@ var lib = {
       // Browserify
       function(cb5) {
         browserify.browserify({
-          bundle: path.join(config.instances, options.instance, 'app/public/app.js'),
-          main: path.join(config.instances, options.instance, 'app/public/app.js')
+          bundle: path.join(instancePath, 'app/public/app.js'),
+          main: path.join(instancePath, 'app/public/app.js')
         }, cb5);
       },
       // Minify
@@ -62,14 +62,14 @@ var lib = {
       // Remove extraneous files
       function(cb6) {
         delFiles = [
-          // // Templates that have been browserified
-          // path.join(config.instances, options.instance, 'app/public/templates.js'),
-          // // Jade views that have been processed
-          // path.join(config.instances, options.instance, '**/public/views{/,**}'),
-          // // Javascript that has been browserified
-          // path.join(config.instances, options.instance, '**/public/**/*.js'),
-          // // Leave the browserified app in place
-          // '!' + path.join(config.instances, options.instance, 'app/public/app.js')
+          // Templates that have been browserified
+          path.join(instancePath, 'app/public/templates.js'),
+          // Jade views that have been processed
+          path.join(instancePath, '**/public/views{/,**}'),
+          // Javascript that has been browserified
+          path.join(instancePath, '**/public/**/*.js'),
+          // Leave the browserified app in place
+          '!' + path.join(instancePath, 'app/public/app.js')
         ];
 
         del(delFiles, cb6);

@@ -24,7 +24,8 @@ describe('Testing Organizations Controller', function() {
   });
 
   it(
-    'Should have a find method that uses $resource to retrieve a list of organizations',
+    'Should have a find method that uses $resource to retrieve a list of ' +
+    'organizations',
     inject(function(Organizations) {
       inject(function($httpBackend) {
         var sampleOrganization = new Organizations({
@@ -33,7 +34,8 @@ describe('Testing Organizations Controller', function() {
         });
         var sampleOrganizations = [sampleOrganization];
 
-        $httpBackend.expectGET('api/organizations').respond(sampleOrganizations);
+        $httpBackend.expectGET('api/organizations')
+          .respond(sampleOrganizations);
 
         _scope.find();
         $httpBackend.flush();
@@ -44,7 +46,8 @@ describe('Testing Organizations Controller', function() {
   );
 
   it(
-    'Should have a findOne method that uses $resource to retreive a single of organization',
+    'Should have a findOne method that uses $resource to retreive a single ' +
+    'of organization',
     inject(function(Organizations) {
       inject(function($httpBackend, $routeParams) {
         var sampleOrganization = new Organizations({
@@ -54,7 +57,8 @@ describe('Testing Organizations Controller', function() {
 
         $routeParams.organizationId = 'abcdef123456789012345678';
 
-        $httpBackend.expectGET(/api\/organizations\/([0-9a-fA-F]{24})$/).respond(sampleOrganization);
+        $httpBackend.expectGET(/api\/organizations\/([0-9a-fA-F]{24})$/)
+          .respond(sampleOrganization);
 
         _scope.findOne();
         $httpBackend.flush();
