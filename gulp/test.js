@@ -2,7 +2,9 @@ var
   // exec = require('child_process').exec,
   gulp = require('gulp'),
   karma = require('gulp-karma'),
+  karmaServer = require('karma').server,
   mocha = require('gulp-mocha'),
+  path = require('path'),
   shell = require('gulp-shell');
 
 var lib = {
@@ -33,26 +35,24 @@ gulp.task('test:e2e', shell.task([
 
 gulp.task('test:client:unit', function() {
   process.env.NODE_ENV = 'test';
-  files = [
-    'node_modules/angular/angular.js',
-    'node_modules/angular-mocks/angular-mocks.js',
-    'src/**/public/**/*.js'
-  ];
 
-  return gulp.src(files)
+  return gulp.src([])
     .pipe(karma({
-      configFile: 'karma.conf.js',
       action: 'run',
-      preprocessors: {
-        'src/**/public/**/*.js': ['browserify']
-      },
-      browserify: {
-        debug: true
-      }
+      configFile: path.join(__dirname, '../karma.conf.js')
     }))
     .on('error', function(err) {
       throw err;
     });
+});
+
+// Experimental
+gulp.task('test:karma', function(done) {
+  process.env.NODE_ENV = 'test';
+
+  karmaServer.start({
+    configFile: path.join(__dirname, '../karma.conf.js')
+  }, done);
 });
 
 gulp.task('test:server:unit', function() {
