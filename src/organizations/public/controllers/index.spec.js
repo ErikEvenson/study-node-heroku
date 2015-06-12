@@ -32,7 +32,7 @@ describe('Testing Organizations Controller', function() {
     inject(function(_Organizations_, _$httpBackend_, _$routeParams_) {
       Organizations = _Organizations_;
       $httpBackend = _$httpBackend_;
-      $routeParams = _$routeParams_
+      $routeParams = _$routeParams_;
     });
   });
 
