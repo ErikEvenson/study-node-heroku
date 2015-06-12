@@ -10,15 +10,17 @@ angular.module(
   ]
 );
 
-angular.element(document).ready(function() {
-  angular.bootstrap(document, ['app'], {
-    strictDi: true
-  });
-});
-
 require('./templates');
 require('./config');
 
 // Modules
 require('../../core/public/module');
 require('../../organizations/public/module');
+
+// Finally, bootstrap the angular app
+angular.element(document).ready(function() {
+  angular.bootstrap(document, ['app'], {
+    strictDi: true
+  });
+});
+
