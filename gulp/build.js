@@ -42,7 +42,7 @@ var lib = {
       // Move files
       function(cb3) {
         gulp.src(sourceFiles)
-          .pipe(newer(instancePath))
+          // .pipe(newer(instancePath))
           .pipe(gulp.dest(instancePath))
           .on('end', cb3);
       },
