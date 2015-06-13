@@ -1,17 +1,23 @@
 var
-  usersController = require('../../core/controllers/users'),
+  usersController = require('../../users/controllers/users'),
   organizationsController = require('../controllers/organizations');
 
 module.exports = function(app) {
   app.route('/api/organizations')
-    .get(organizationsController.list)
+    .get(
+      usersController.requiresLogin,
+      organizationsController.list
+    )
     .post(
       usersController.requiresLogin,
       organizationsController.create
     );
 
   app.route('/api/organizations/:organizationId')
-    .get(organizationsController.read)
+    .get(
+      usersController.requiresLogin,
+      organizationsController.read
+    )
     .put(
       usersController.requiresLogin,
       organizationsController.hasAuthorization,

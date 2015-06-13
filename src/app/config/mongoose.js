@@ -10,7 +10,7 @@ module.exports = function() {
   var db = mongoose.connect(environment.db);
   var instancePath = path.join(__dirname, '../..');
 
-  require(path.join(instancePath, 'core/models/users'));
+  require(path.join(instancePath, 'users/models/users'));
   require(path.join(instancePath, 'organizations/models/organizations'));
 
   // Close the Mongoose connection on Control+C

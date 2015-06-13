@@ -1,10 +1,10 @@
-extends ./bases/base.jade
+extends ../../app/views/base.jade
 
 block content
   each message, index in messages
     div(class="flash")= message
     
-  form(action='/signin', method='post')
+  form(action='/users/signin', method='post')
     div
       label Username:
       input(type='text', name='username')
@@ -15,4 +15,4 @@ block content
       input(type='submit', value='Sign in')
 
   p
-    a(href="/signup") Sign up
+    a(href="/users/signup") Sign up
