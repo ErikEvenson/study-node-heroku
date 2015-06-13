@@ -12,7 +12,7 @@ function writeScreenShot(data, filename) {
 
 describe('first', function() {
   beforeEach(function() {
-      isAngularSite(true);
+      isAngularSite(false);
   });
 
   it('runs dummy test', function() {

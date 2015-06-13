@@ -37,7 +37,7 @@ exports.requiresLogin = function(req, res, next) {
 
 exports.renderSignin = function(req, res, next) {
   if (!req.user) {
-    res.render('app.server.views.signin.jade', {
+    res.render('app.signin.jade', {
       title: 'Sign-in form',
       messages: req.flash('error') || req.flash('info')
     });
@@ -48,7 +48,7 @@ exports.renderSignin = function(req, res, next) {
 
 exports.renderSignup = function(req, res, next) {
   if (!req.user) {
-    res.render('app.server.views.signup.jade', {
+    res.render('app.signup.jade', {
       title: 'Sign-up form',
       messages: req.flash('error')
     });

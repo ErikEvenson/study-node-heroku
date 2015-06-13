@@ -1,5 +1,5 @@
 var
-  usersController = require('../../../core/server/controllers/users'),
+  usersController = require('../../core/controllers/users'),
   organizationsController = require('../controllers/organizations');
 
 module.exports = function(app) {

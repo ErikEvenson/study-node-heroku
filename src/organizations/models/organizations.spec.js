@@ -1,8 +1,8 @@
 var
   app,
   db,
-  express = require('../../../app/server/config/express.js'),
-  mongoose = require('../../../app/server/config/mongoose.js'),
+  express = require('../../app/config/express.js'),
+  mongoose = require('../../app/config/mongoose.js'),
   should = require('should');
 
 var user, User, organization, Organization;
