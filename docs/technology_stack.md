@@ -47,6 +47,7 @@ These are the technologies used in this project.
 - [q](https://www.npmjs.com/package/q) 1.4.1 - A library for promises (CommonJS/Promises/A,B,D)
 - [request]() 2.57.0 - 'Simplified HTTP request client.'
 - [should](https://www.npmjs.com/package/should) 6.0.3 - test framework agnostic BDD-style assertions
+- [sinon](https://www.npmjs.com/package/sinon) 1.15.3 - JavaScript test spies, stubs and mocks.
 - [supertest](https://www.npmjs.com/package/supertest) 1.0.1 - Super-agent driven library for testing HTTP servers
 - [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - Rigorous implementation of RFC4122 (v1 and v4) UUIDs.
 - [yargs](https://www.npmjs.com/package/yargs) 3.9.1 - Light-weight option parsing with an argv hash. No optstrings attached.

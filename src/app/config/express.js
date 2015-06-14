@@ -17,8 +17,7 @@ var
 module.exports = function() {
   var app = express();
   var instancePath = path.join(__dirname, '../..');
-
-  // app.use(express.static(__dirname + '/../public'));
+  var forceSSL = require('./ssl').force(environment.hostname);
 
   if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
@@ -34,6 +33,13 @@ module.exports = function() {
 
   app.use(bodyParser.json());
   app.use(methodOverride());
+
+  // Set up SSL
+  if (
+    environment.hostname === 'production' || environment.hostname === 'staging'
+  ) {
+    app.use(forceSSL);
+  }
 
   // Set up express-session
   app.use(session({

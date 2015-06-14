@@ -95,7 +95,7 @@ exports.userByUsername = function(req, res, next, username) {
       }
 
       req.userFromUsername = userFromUsername;
-      next();      
+      next();
     });
 };
 
