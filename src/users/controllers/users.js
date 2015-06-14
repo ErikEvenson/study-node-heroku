@@ -84,3 +84,21 @@ exports.signout = function(req, res) {
   req.logout();
   res.redirect('/');
 };
+
+exports.userByUsername = function(req, res, next, username) {
+  User
+    .findOneByUsername(username, function(err, userFromUsername) {
+      if (err) return next(err);
+
+      if (!userFromUsername) {
+        return next(new Error('Failed to load user from username ' + id));
+      }
+
+      req.userFromUsername = userFromUsername;
+      next();      
+    });
+};
+
+exports.read = function(req, res) {
+  res.json(req.userFromUsername);
+};

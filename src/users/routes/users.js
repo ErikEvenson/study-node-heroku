@@ -1,9 +1,8 @@
-var passport = require('passport');
+var
+  passport = require('passport'),
+  usersController = require('../controllers/users');
 
 module.exports = function(app) {
-  var
-    usersController = require('../controllers/users');
-
   app.route('/users/signup')
     .get(usersController.renderSignup)
     .post(usersController.signup);
@@ -20,4 +19,12 @@ module.exports = function(app) {
     ));
 
   app.get('/users/signout', usersController.signout);
+
+  app.route('/api/users/:username')
+    .get(
+      // usersController.requiresLogin,
+      usersController.read
+    );
+
+  app.param('username', usersController.userByUsername);
 };
