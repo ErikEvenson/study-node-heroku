@@ -4,7 +4,7 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'src/**/public/**/*.js'
+      'src/**/*.js'
     ],
     frameworks: ['browserify', 'jasmine'],
     reporters: ['progress'],
@@ -12,7 +12,7 @@ module.exports = function(config) {
     captureTimeout: 60000,
     singleRun: false,
     preprocessors: {
-      'src/**/public/**/*.js': ['browserify']
+      'src/**/*.js': ['browserify']
     },
     browserify: {
       debug: true

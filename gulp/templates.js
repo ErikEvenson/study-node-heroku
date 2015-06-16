@@ -11,15 +11,14 @@ var lib = {
     var templatesPath = path.join(
       config.instances,
       options.instance,
-      'app/public'
+      'app'
     );
 
     var instancePath = path.join(config.instances, options.instance);
 
     var files = [
-      path.join(instancePath, 'app/public/views/*.jade'),
-      path.join(instancePath, 'core/public/views/*.jade'),
-      path.join(instancePath, 'organizations/public/views/*.jade')
+      path.join(instancePath, 'app/views/*.jade'),
+      path.join(instancePath, 'users/views/*.jade')
     ];
 
     return gulp.src(files)

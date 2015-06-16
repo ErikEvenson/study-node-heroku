@@ -1,4 +1,4 @@
-angular.module('core', []);
+angular.module('users', []);
 
 require('./config');
 require('./services');

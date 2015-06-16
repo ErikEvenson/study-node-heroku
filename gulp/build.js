@@ -18,8 +18,7 @@ var lib = {
     var sourcePath = path.join(config.basepath, options.source, '**/*');
 
     var sourceFiles = [
-      sourcePath,
-      path.join(config.basepath, 'package.json')
+      sourcePath
     ];
 
     // Remove source directory.
@@ -53,8 +52,8 @@ var lib = {
       // Browserify
       function(cb5) {
         browserify.browserify({
-          bundle: path.join(instancePath, 'app/public/app.js'),
-          main: path.join(instancePath, 'app/public/app.js')
+          bundle: path.join(instancePath, 'js/app.js'),
+          main: path.join(instancePath, 'app/app.js')
         }, cb5);
       },
       // Minify
@@ -62,14 +61,8 @@ var lib = {
       // Remove extraneous files
       function(cb6) {
         delFiles = [
-          // Templates that have been browserified
-          path.join(instancePath, 'app/public/templates.js'),
-          // Jade views that have been processed
-          path.join(instancePath, '**/public/views{/,**}'),
-          // Javascript that has been browserified
-          path.join(instancePath, '**/public/**/*.js'),
-          // Leave the browserified app in place
-          '!' + path.join(instancePath, 'app/public/app.js')
+          path.join(instancePath, 'app/{/,*}'),
+          path.join(instancePath, 'users/{/,*}')
         ];
 
         del(delFiles, cb6);

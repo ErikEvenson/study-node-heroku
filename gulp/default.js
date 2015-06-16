@@ -2,8 +2,7 @@ var
   argv = require('yargs').argv,
   build = require('./build'),
   gulp = require('gulp'),
-  gutil = require('gulp-util'),
-  server = require('./server');
+  gutil = require('gulp-util');
 
 gulp.task('default', function() {
   var options = {
@@ -23,8 +22,4 @@ gulp.task('default', function() {
       options.source + '...'
     );
   }
-
-  build.buildInstance(options, function(err) {
-    server.serverStart(options.instance);
-  });
 });

@@ -5,8 +5,7 @@ angular.module(
   [
     'ngResource',
     'ngRoute',
-    'core',
-    'organizations'
+    'users'
   ]
 );
 
@@ -14,8 +13,7 @@ require('./templates');
 require('./config');
 
 // Modules
-require('../../core/public/module');
-require('../../organizations/public/module');
+require('../users/module');
 
 // Finally, bootstrap the angular app
 angular.element(document).ready(function() {

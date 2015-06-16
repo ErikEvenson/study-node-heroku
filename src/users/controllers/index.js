@@ -1,5 +1,5 @@
-angular.module('core').controller(
-  'CoreController',
+angular.module('users').controller(
+  'UsersController',
   [
     '$scope',
     'Authentication',
